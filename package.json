@@ -3,6 +3,7 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "svelte-kit dev",
+		"dev:host": "svelte-kit dev --host",
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",
@@ -32,5 +33,12 @@
 		"tslib": "^2.3.1",
 		"typescript": "~4.5.4"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@fontsource/inter": "^4.5.5",
+		"@iconify/icons-akar-icons": "^1.2.3",
+		"@iconify/svelte": "^2.1.2",
+		"@mariohamann/tailwindcss-var": "^0.1.1",
+		"tailwind-merge": "^1.2.0"
+	}
 }
