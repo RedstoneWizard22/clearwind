@@ -7,7 +7,7 @@
 <script lang="ts">
 	export let variant: LoaderVariants = 'spinner';
 
-	const adjustment = 'transform: translateY(-0.05rem);';
+	const adjustment = 'transform: translateY(-0.1rem);';
 </script>
 
 {#if variant == 'spinner'}

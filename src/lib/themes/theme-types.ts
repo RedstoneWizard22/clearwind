@@ -5,6 +5,7 @@ export type Theme = {
 	Overlay: OverlayTheme;
 	Button: ButtonTheme;
 	Kbd: KbdTheme;
+	Switch: SwitchTheme;
 };
 
 //// Component types
@@ -49,4 +50,19 @@ export type KbdTheme = {
 	defaults: Record<string, never>;
 	apply: (info: KbdInfo, classes: Classes<KbdParts>) => void;
 	extend?: (info: KbdInfo, classes: Classes<KbdParts>) => void;
+};
+
+/// Switch
+export type SwitchParts = 'base' | 'checkbox' | 'label';
+export type SwitchInfo = {
+	isDisabled: boolean;
+	hasLabel: boolean;
+	size: string;
+};
+export type SwitchTheme = {
+	defaults: {
+		size: string;
+	};
+	apply: (info: SwitchInfo, classes: Classes<SwitchParts>) => void;
+	extend?: (info: SwitchInfo, classes: Classes<SwitchParts>) => void;
 };

@@ -6,6 +6,7 @@
 	import checkIcon from '@iconify/icons-akar-icons/check';
 	import Loader from '$lib/components/Loader/Loader.svelte';
 	import Kbd from '$lib/components/Kbd/Kbd.svelte';
+	import Switch from '$lib/components/Switch/Switch.svelte';
 </script>
 
 <main class="px-8 text-gray-600">
@@ -80,6 +81,21 @@
 	<br />
 	<br />
 	<span class="text-xs"><Kbd>Ctrl + K</Kbd></span>
+
+	<h3>Switch</h3>
+	<Switch />
+	<br />
+	<Switch checked bco="var-red" label="I agree to sell my soul" />
+	<br />
+	<Switch checked disabled label="I agree to sell my soul" />
+	<br />
+	<Switch disabled label="I agree to sell my soul" />
+	<br />
+	<Switch size="sm" label="Small switch" />
+	<br />
+	<Switch size="md" label="Medium switch" />
+	<br />
+	<Switch size="lg" label="Large switch" />
 
 	<div class="my-72" />
 </main>
