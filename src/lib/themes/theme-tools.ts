@@ -1,4 +1,12 @@
-import { twMerge } from 'tailwind-merge';
+import { extendTailwindMerge } from 'tailwind-merge';
+
+const customTwMerge = extendTailwindMerge({
+	theme: {},
+	classGroups: {
+		var: [{ var: [() => true] }],
+	},
+	conflictingClassGroups: {},
+});
 
 type Classes<T extends string> = {
 	[K in T]: {
@@ -13,7 +21,7 @@ function createClasses<T extends string>(parts: Readonly<string[]>): Classes<T> 
 
 		acc[part] = {
 			override: (classes) => {
-				classes && (classString = twMerge(classString, classes));
+				classes && (classString = customTwMerge(classString, classes));
 			},
 			get: () => classString,
 		};
