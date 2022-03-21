@@ -1,68 +1,69 @@
-import type { Classes } from './theme-tools';
+const parts = {
+	Overlay: ['base'],
+	Button: ['base', 'content', 'leftIcon', 'rightIcon'],
+	Kbd: ['base'],
+	Switch: ['base', 'checkbox', 'label'],
+} as const; // Must be as const so we can derive union types
 
-//// Main theme type
-export type Theme = {
-	Overlay: OverlayTheme;
-	Button: ButtonTheme;
-	Kbd: KbdTheme;
-	Switch: SwitchTheme;
-};
-
-//// Component types
-/// Overlay
-export type OverlayParts = 'base';
-export type OverlayInfo = {
-	variant: string;
-};
-export type OverlayTheme = {
-	defaults: {
+type Info = {
+	Overlay: {
 		variant: string;
 	};
-	apply: (info: OverlayInfo, classes: Classes<OverlayParts>) => void;
-	extend?: (info: OverlayInfo, classes: Classes<OverlayParts>) => void;
-};
-
-/// Button
-export type ButtonParts = 'base' | 'content' | 'leftIcon' | 'rightIcon';
-export type ButtonInfo = {
-	variant: string;
-	size: string;
-	isCompact: boolean;
-	isDisabled: boolean;
-	isLoading: boolean;
-	hasLeftIcon: boolean;
-	hasRightIcon: boolean;
-	hasContent: boolean;
-};
-export type ButtonTheme = {
-	defaults: {
+	Button: {
 		variant: string;
 		size: string;
+		isCompact: boolean;
+		isDisabled: boolean;
+		isLoading: boolean;
+		hasLeftIcon: boolean;
+		hasRightIcon: boolean;
+		hasContent: boolean;
 	};
-	apply: (info: ButtonInfo, classes: Classes<ButtonParts>) => void;
-	extend?: (info: ButtonInfo, classes: Classes<ButtonParts>) => void;
-};
-
-/// Kbd
-export type KbdParts = 'base';
-export type KbdInfo = Record<string, never>;
-export type KbdTheme = {
-	defaults: Record<string, never>;
-	apply: (info: KbdInfo, classes: Classes<KbdParts>) => void;
-	extend?: (info: KbdInfo, classes: Classes<KbdParts>) => void;
-};
-
-/// Switch
-export type SwitchParts = 'base' | 'checkbox' | 'label';
-export type SwitchInfo = {
-	isDisabled: boolean;
-	hasLabel: boolean;
-	size: string;
-};
-export type SwitchTheme = {
-	defaults: {
+	Kbd: {
+		variant: string;
+	};
+	Switch: {
+		isDisabled: boolean;
+		hasLabel: boolean;
 		size: string;
 	};
-	apply: (info: SwitchInfo, classes: Classes<SwitchParts>) => void;
-	extend?: (info: SwitchInfo, classes: Classes<SwitchParts>) => void;
 };
+
+type Parts = {
+	[K in keyof typeof parts]: typeof parts[K][number];
+};
+
+type Components = keyof Parts;
+
+type ComponentTheme<T extends Components> = {
+	variants: string[];
+	sizes: ('xs' | 'sm' | 'md' | 'lg' | 'xl')[];
+	core: COProp<T>;
+	extension?: COProp<T>;
+};
+
+type Theme = {
+	[K in Components]: ComponentTheme<K>;
+};
+
+type RCOProp = string;
+
+type COProp<T extends Components> =
+	| Partial<Record<Parts[T], string>>
+	| ((info: Info[T]) => Partial<Record<Parts[T], string>>);
+
+type ClearwindContext = {
+	theme: Theme;
+	twMerge: (...classLists: (string | false | null | undefined)[]) => string;
+	getClasses: <T extends Components>(args: {
+		component: T;
+		rcoTarget: Parts[T];
+		info: Info[T];
+		rco?: RCOProp;
+		co?: COProp<T>;
+		requiredClasses?: COProp<T>;
+	}) => Record<Parts[T], string>;
+};
+
+export { parts };
+export type { COProp, RCOProp, Theme, ComponentTheme, Info, Parts, Components, ClearwindContext };

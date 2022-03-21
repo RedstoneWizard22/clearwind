@@ -12,8 +12,8 @@
 <main class="px-8 text-gray-600">
 	<h3>Overlays</h3>
 	<div class="relative mx-auto h-max w-max overflow-hidden rounded p-2 shadow">
-		<Overlay variant="dark" active>
-			<span class="text-white">Locked DLC</span>
+		<Overlay active>
+			<span class="font-bold text-black">Locked DLC</span>
 		</Overlay>
 		<p>Hello</p>
 		<p class="mt-10">I'm jeeve stobs</p>
@@ -21,34 +21,34 @@
 	</div>
 	<br />
 	<div class="relative mx-auto h-max w-max overflow-hidden rounded p-2 shadow">
-		<Overlay active />
+		<Overlay active variant="dark" />
 		<p>Hello</p>
 		<p class="mt-10">I'm jeeve stobs</p>
 		<input type="range" />
 	</div>
 	<br />
 	<div class="relative mx-auto h-max w-max overflow-hidden rounded p-2 shadow">
-		<Overlay active bco="bg-gradient-to-br from-sky-400 to-indigo-400" />
+		<Overlay active rco="bg-gradient-to-br from-sky-400 to-indigo-400" />
 		<p>Hello</p>
 		<p class="mt-10">I'm jeeve stobs</p>
 		<input type="range" />
 	</div>
 
 	<h3>Buttons!</h3>
-	<Button variant="dark">Settings</Button>
+	<Button>Settings</Button>
 	<Button variant="light">Settings</Button>
 	<Button variant="ghost">Settings</Button>
 	<Button variant="outline">Settings</Button>
 	<br />
 	<br />
-	<Button variant="dark" leftIcon={copyIcon}>Copy</Button>
-	<Button variant="dark" rightIcon={checkIcon}>Complete</Button>
+	<Button leftIcon={copyIcon}>Copy</Button>
+	<Button rightIcon={checkIcon}>Complete</Button>
 	<br />
 	<br />
 	<Button variant="light" leftIcon={copyIcon} />
 	<br />
 	<br />
-	<Button variant="dark" loading>Loading</Button>
+	<Button loading>Loading</Button>
 	<Button variant="light" loaderPosition="right" loading>Apply</Button>
 	<br />
 	<br />
@@ -62,10 +62,13 @@
 	<Button size="lg" compact rightIcon={checkIcon}>Get started</Button>
 	<br />
 	<br />
-	<Button variant="dark" disabled>Settings</Button>
+	<Button disabled>Settings</Button>
 	<Button variant="light" disabled>Settings</Button>
 	<Button variant="ghost" disabled>Settings</Button>
 	<Button variant="outline" disabled>Settings</Button>
+	<br />
+	<br />
+	<Button bco="shadow-lg shadow-var-500">With bco prop</Button>
 
 	<h3>Loaders</h3>
 	<Loader />
@@ -73,8 +76,8 @@
 	<Loader variant="bars" />
 	<Loader variant="balls" />
 	<Loader variant="grid" />
-	<Button variant="dark" loaderVariant="grid" loading>Apply</Button>
-	<Button variant="dark">Settings</Button>
+	<Button loaderVariant="grid" loading>Apply</Button>
+	<Button>Settings</Button>
 
 	<h3>Kbd</h3>
 	<span class="text-sm"><Kbd>Ctrl</Kbd> + <Kbd>K</Kbd></span>
@@ -85,7 +88,7 @@
 	<h3>Switch</h3>
 	<Switch />
 	<br />
-	<Switch checked bco="var-red" label="I agree to sell my soul" />
+	<Switch checked rco="var-red" label="I agree to sell my soul" />
 	<br />
 	<Switch checked disabled label="I agree to sell my soul" />
 	<br />

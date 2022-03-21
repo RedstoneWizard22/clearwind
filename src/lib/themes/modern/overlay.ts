@@ -1,17 +1,11 @@
-import type { OverlayTheme } from '../theme-types';
+import type { ComponentTheme } from '../theme-types';
 
-export const overalyTheme: OverlayTheme = {
-	defaults: {
-		variant: 'light',
-	},
-	apply: (info, classes) => {
-		switch (info.variant) {
-			case 'dark':
-				classes.base.override('bg-black');
-				break;
-			case 'light':
-				classes.base.override('bg-white');
-				break;
-		}
+export const overalyTheme: ComponentTheme<'Overlay'> = {
+	variants: ['default', 'dark'],
+	sizes: ['md'],
+	core(info) {
+		return {
+			base: info.variant == 'dark' ? 'bg-black' : 'bg-white',
+		};
 	},
 };
