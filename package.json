@@ -39,6 +39,7 @@
 		"@iconify/icons-akar-icons": "^1.2.3",
 		"@iconify/svelte": "^2.1.2",
 		"@mariohamann/tailwindcss-var": "^0.1.1",
+		"svelte-portal": "^2.1.2",
 		"tailwind-merge": "^1.2.0"
 	}
 }

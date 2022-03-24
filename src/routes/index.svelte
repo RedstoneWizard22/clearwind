@@ -7,6 +7,16 @@
 	import Loader from '$lib/components/Loader/Loader.svelte';
 	import Kbd from '$lib/components/Kbd/Kbd.svelte';
 	import Switch from '$lib/components/Switch/Switch.svelte';
+	import Drawer from '$lib/components/Drawer/Drawer.svelte';
+
+	import { scrollLock } from '$lib/actions';
+
+	let leftDrawerOpen = false;
+	let rightDrawerOpen = false;
+	let topDrawerOpen = false;
+	let bottomDrawerOpen = false;
+
+	let scrollLockOn = false;
 </script>
 
 <main class="px-8 text-gray-600">
@@ -99,6 +109,35 @@
 	<Switch size="md" label="Medium switch" />
 	<br />
 	<Switch size="lg" label="Large switch" />
+
+	<h3>Drawer</h3>
+	<Button on:click={() => (leftDrawerOpen = true)}>Left drawer</Button>
+	<Button on:click={() => (rightDrawerOpen = true)}>Right drawer</Button>
+	<Button on:click={() => (topDrawerOpen = true)}>Top drawer</Button>
+	<Button on:click={() => (bottomDrawerOpen = true)}>Bottom drawer</Button>
+	<Drawer open={leftDrawerOpen} on:close={() => (leftDrawerOpen = false)}>
+		<div class="m-20">Hello!</div>
+	</Drawer>
+	<Drawer open={rightDrawerOpen} position="right" on:close={() => (rightDrawerOpen = false)}>
+		<div class="m-20">Hello!</div>
+	</Drawer>
+	<Drawer open={topDrawerOpen} position="top" on:close={() => (topDrawerOpen = false)}>
+		<div class="m-20">Hello!</div>
+	</Drawer>
+	<Drawer open={bottomDrawerOpen} position="bottom" on:close={() => (bottomDrawerOpen = false)}>
+		<div class="m-20">Hello!</div>
+	</Drawer>
+
+	<h3>Action tests</h3>
+	<Button
+		on:click={() => {
+			scrollLockOn = !scrollLockOn;
+		}}
+	>
+		<span use:scrollLock={{ active: scrollLockOn }}>
+			{scrollLockOn ? 'Unlock' : 'Lock'} scroll
+		</span>
+	</Button>
 
 	<div class="my-72" />
 </main>

@@ -3,6 +3,7 @@ const parts = {
 	Button: ['base', 'content', 'leftIcon', 'rightIcon'],
 	Kbd: ['base'],
 	Switch: ['base', 'checkbox', 'label'],
+	Drawer: ['root', 'backdrop', 'drawer'],
 } as const; // Must be as const so we can derive union types
 
 type Info = {
@@ -26,6 +27,11 @@ type Info = {
 		isDisabled: boolean;
 		hasLabel: boolean;
 		size: string;
+	};
+	Drawer: {
+		variant: string;
+		size: string;
+		position: 'top' | 'right' | 'bottom' | 'left';
 	};
 };
 
