@@ -116,16 +116,16 @@
 	<Button on:click={() => (topDrawerOpen = true)}>Top drawer</Button>
 	<Button on:click={() => (bottomDrawerOpen = true)}>Bottom drawer</Button>
 	<Drawer open={leftDrawerOpen} on:close={() => (leftDrawerOpen = false)}>
-		<div class="m-20">Hello!</div>
+		<div class="m-20">Left!</div>
 	</Drawer>
 	<Drawer open={rightDrawerOpen} position="right" on:close={() => (rightDrawerOpen = false)}>
-		<div class="m-20">Hello!</div>
+		<div class="m-20">Right!</div>
 	</Drawer>
 	<Drawer open={topDrawerOpen} position="top" on:close={() => (topDrawerOpen = false)}>
-		<div class="m-20">Hello!</div>
+		<div class="m-20">Top!</div>
 	</Drawer>
 	<Drawer open={bottomDrawerOpen} position="bottom" on:close={() => (bottomDrawerOpen = false)}>
-		<div class="m-20">Hello!</div>
+		<div class="m-20">Bottom!</div>
 	</Drawer>
 
 	<h3>Action tests</h3>

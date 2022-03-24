@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { EasingFunction, fade, TransitionConfig } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
+	import type { EasingFunction, TransitionConfig } from 'svelte/transition';
 	import Portal from 'svelte-portal/src/Portal.svelte';
 	import type { RCOProp, ClearwindContext, COProp } from '$lib/themes/theme-types';
 	import { getContext } from 'svelte';

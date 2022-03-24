@@ -7,13 +7,18 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [
 		preprocess({
-			postcss: true
-		})
+			postcss: true,
+		}),
 	],
 
 	kit: {
-		adapter: adapter()
-	}
+		adapter: adapter(),
+		files: {
+			routes: 'src/site/routes',
+			assets: 'src/site/assets',
+			template: 'src/site/app.html',
+		},
+	},
 };
 
 export default config;

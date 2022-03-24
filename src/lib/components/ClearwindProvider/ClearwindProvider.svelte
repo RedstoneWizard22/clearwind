@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { ClearwindContext, parts, Theme, Parts, COProp } from '$lib/themes/theme-types';
+	import { parts } from '$lib/themes/theme-types';
+	import type { ClearwindContext, Theme, Parts, COProp } from '$lib/themes/theme-types';
 	import { setContext } from 'svelte';
 	import { extendTailwindMerge } from 'tailwind-merge';
 
