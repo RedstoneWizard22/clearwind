@@ -13,6 +13,10 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
 	},
 	"devDependencies": {
+		"@fontsource/inter": "^4.5.7",
+		"@fontsource/space-grotesk": "^4.5.5",
+		"@iconify/icons-akar-icons": "^1.2.3",
+		"@iconify/icons-mdi": "^1.2.4",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@typescript-eslint/eslint-plugin": "^5.10.1",
@@ -35,11 +39,12 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@fontsource/inter": "^4.5.5",
-		"@iconify/icons-akar-icons": "^1.2.3",
-		"@iconify/svelte": "^2.1.2",
+		"@iconify/svelte": "^2.2.0",
 		"@mariohamann/tailwindcss-var": "^0.1.1",
 		"svelte-portal": "^2.1.2",
 		"tailwind-merge": "^1.2.0"
+	},
+	"optionalDependencies": {
+		"hotkeys-js": "^3.8.7"
 	}
 }

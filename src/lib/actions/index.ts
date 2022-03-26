@@ -95,23 +95,17 @@ export function modalClose(
 }
 
 /**
- * Action which blocks scrolling on the element given by `target`
- * by setting `overflow: hidden` on the element. The blocking can
- * be toggled by changing the `active` property.
- *
- * Default target is the body element.
+ * Action which locks scrolling on an element by setting the `overflow` style
+ * property to `hidden`. The active prop can be used to disable the action.
  */
-export function scrollLock(
-	node: HTMLElement,
-	{ active = true, target = document.body }
-): SvelteActionReturnType {
-	const originalOverflow = target.style.overflow;
+export function scrollLock(node: HTMLElement, { active = true }): SvelteActionReturnType {
+	const originalOverflow = node.style.overflow;
 
 	function run() {
 		if (active) {
-			target.style.overflow = 'hidden';
+			node.style.overflow = 'hidden';
 		} else {
-			target.style.overflow = '';
+			node.style.overflow = '';
 		}
 	}
 
@@ -119,14 +113,11 @@ export function scrollLock(
 
 	return {
 		destroy() {
-			target.style.overflow = originalOverflow;
+			node.style.overflow = originalOverflow;
 		},
 		update(newProps) {
 			if ('active' in newProps) {
 				active = newProps.active;
-			}
-			if ('target' in newProps) {
-				target = newProps.target;
 			}
 			run();
 		},

@@ -4,8 +4,12 @@
 
 	import '../app.css';
 	import '@fontsource/inter/variable.css';
+	// import '@fontsource/space-grotesk/variable.css';
+	import AppFrame from '../components/AppFrame.svelte';
 </script>
 
 <ClearwindProvider {theme}>
-	<slot />
+	<AppFrame>
+		<slot />
+	</AppFrame>
 </ClearwindProvider>

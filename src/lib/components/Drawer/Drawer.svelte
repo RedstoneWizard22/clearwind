@@ -111,7 +111,6 @@
 					closeOnClickOutside,
 					closeOnEscape,
 				}}
-				use:scrollLock={{ active: useScrollLock }}
 				on:modalclose={() => dispatch('close')}
 				transition:drawerTransition={{
 					easing: transitionEasingFunction,
@@ -123,3 +122,5 @@
 		</div>
 	</Portal>
 {/if}
+
+<svelte:body use:scrollLock={{ active: open && useScrollLock }} />

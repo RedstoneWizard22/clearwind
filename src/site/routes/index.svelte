@@ -19,7 +19,7 @@
 	let scrollLockOn = false;
 </script>
 
-<main class="px-8 text-gray-600">
+<main class="px-8 pt-2 text-gray-600">
 	<h3>Overlays</h3>
 	<div class="relative mx-auto h-max w-max overflow-hidden rounded p-2 shadow">
 		<Overlay active>
@@ -134,25 +134,16 @@
 			scrollLockOn = !scrollLockOn;
 		}}
 	>
-		<span use:scrollLock={{ active: scrollLockOn }}>
-			{scrollLockOn ? 'Unlock' : 'Lock'} scroll
-		</span>
+		{scrollLockOn ? 'Unlock' : 'Lock'} scroll
 	</Button>
 
 	<div class="my-72" />
 </main>
 
+<svelte:body use:scrollLock={{ active: scrollLockOn }} />
+
 <style lang="postcss">
-	h1 {
-		@apply text-4xl font-bold text-gray-900;
-	}
-	h2 {
-		@apply text-3xl font-bold text-gray-900;
-	}
 	h3 {
 		@apply my-6 text-2xl font-bold text-gray-900;
-	}
-	h4 {
-		@apply text-xl font-bold text-gray-900;
 	}
 </style>

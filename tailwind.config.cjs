@@ -7,7 +7,7 @@ const config = {
 	theme: {
 		extend: {
 			colors: {
-				primary: colors.blue,
+				primary: colors.indigo,
 				gray: colors.slate,
 				var: {
 					50: 'var(--tw-var-color-50)',
@@ -19,13 +19,13 @@ const config = {
 					600: 'var(--tw-var-color-600)',
 					700: 'var(--tw-var-color-700)',
 					800: 'var(--tw-var-color-800)',
-					900: 'var(--tw-var-color-900)'
-				}
-			}
-		}
+					900: 'var(--tw-var-color-900)',
+				},
+			},
+		},
 	},
 
-	plugins: [variables]
+	plugins: [variables],
 };
 
 module.exports = config;
