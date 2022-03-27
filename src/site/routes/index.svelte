@@ -10,6 +10,8 @@
 	import Drawer from '$lib/components/Drawer/Drawer.svelte';
 
 	import { scrollLock } from '$lib/actions';
+	import Accordion from '$lib/components/Accordion/Accordion.svelte';
+	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 
 	let leftDrawerOpen = false;
 	let rightDrawerOpen = false;
@@ -136,6 +138,27 @@
 	>
 		{scrollLockOn ? 'Unlock' : 'Lock'} scroll
 	</Button>
+
+	<h3>Accordion (WIP!)</h3>
+
+	<Accordion>
+		<AccordionItem>
+			<span slot="head">Accordion 1</span>
+			<span slot="body">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique minima impedit dolorum
+				ipsum fugiat provident itaque tempora fuga nesciunt hic! Placeat iusto sit iure consequatur
+				voluptate quod consectetur iste vero.
+			</span>
+		</AccordionItem>
+		<AccordionItem>
+			<span slot="head">Accordion 2</span>
+			<span slot="body">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique minima impedit dolorum
+				ipsum fugiat provident itaque tempora fuga nesciunt hic! Placeat iusto sit iure consequatur
+				voluptate quod consectetur iste vero.
+			</span>
+		</AccordionItem>
+	</Accordion>
 
 	<div class="my-72" />
 </main>

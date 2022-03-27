@@ -4,6 +4,8 @@ const parts = {
 	Kbd: ['base'],
 	Switch: ['base', 'checkbox', 'label'],
 	Drawer: ['root', 'backdrop', 'drawer'],
+	Accordion: ['root'],
+	AccordionItem: ['root', 'headroot', 'headcontent', 'headicon', 'body'],
 } as const; // Must be as const so we can derive union types
 
 type Info = {
@@ -32,6 +34,17 @@ type Info = {
 		variant: string;
 		size: string;
 		position: 'top' | 'right' | 'bottom' | 'left';
+	};
+	Accordion: {
+		variant: string;
+		size: string;
+		iconPosition: 'left' | 'right';
+	};
+	AccordionItem: {
+		variant: string;
+		size: string;
+		iconPosition: 'left' | 'right';
+		isExpanded: boolean;
 	};
 };
 

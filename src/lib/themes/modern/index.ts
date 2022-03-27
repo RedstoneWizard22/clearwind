@@ -4,6 +4,7 @@ import { kbdTheme } from './kbd';
 import { overalyTheme } from './overlay';
 import { switchTheme } from './switch';
 import { drawerTheme } from './drawer';
+import { accordionTheme, accordionItemTheme } from './accordion';
 
 const theme: Theme = {
 	Overlay: overalyTheme,
@@ -11,6 +12,8 @@ const theme: Theme = {
 	Kbd: kbdTheme,
 	Switch: switchTheme,
 	Drawer: drawerTheme,
+	Accordion: accordionTheme,
+	AccordionItem: accordionItemTheme,
 };
 
 export default theme;
