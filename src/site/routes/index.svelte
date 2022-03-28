@@ -12,6 +12,7 @@
 	import { scrollLock } from '$lib/actions';
 	import Accordion from '$lib/components/Accordion/Accordion.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
+	import Revealer from '$lib/components/Revealer/Revealer.svelte';
 
 	let leftDrawerOpen = false;
 	let rightDrawerOpen = false;
@@ -19,6 +20,9 @@
 	let bottomDrawerOpen = false;
 
 	let scrollLockOn = false;
+
+	let revealer1Open = false;
+	let revealer2Open = false;
 </script>
 
 <main class="px-8 pt-2 text-gray-600">
@@ -138,6 +142,26 @@
 	>
 		{scrollLockOn ? 'Unlock' : 'Lock'} scroll
 	</Button>
+
+	<h3>Revealer</h3>
+
+	<Button on:click={() => (revealer1Open = !revealer1Open)}>Revealer 1</Button>
+	<Revealer open={revealer1Open}>
+		<div class="bg-gray-50 p-20">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, voluptate delectus eum ad
+			perspiciatis minus assumenda consequatur magni sint dolorum repellat aut sit aliquam quae
+			ducimus, exercitationem maxime quo recusandae.
+		</div>
+	</Revealer>
+	<div class="h-5" />
+	<Button on:click={() => (revealer2Open = !revealer2Open)}>Revealer 2</Button>
+	<Revealer open={revealer2Open} minHeight={100}>
+		<div class="bg-gray-50 p-20">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, voluptate delectus eum ad
+			perspiciatis minus assumenda consequatur magni sint dolorum repellat aut sit aliquam quae
+			ducimus, exercitationem maxime quo recusandae.
+		</div>
+	</Revealer>
 
 	<h3>Accordion (WIP!)</h3>
 
