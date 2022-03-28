@@ -13,6 +13,8 @@
 	import Accordion from '$lib/components/Accordion/Accordion.svelte';
 	import AccordionItem from '$lib/components/Accordion/AccordionItem.svelte';
 	import Revealer from '$lib/components/Revealer/Revealer.svelte';
+	import TabBar from '$lib/components/TabBar/TabBar.svelte';
+	import Tab from '$lib/components/TabBar/Tab.svelte';
 
 	let leftDrawerOpen = false;
 	let rightDrawerOpen = false;
@@ -183,6 +185,50 @@
 			</span>
 		</AccordionItem>
 	</Accordion>
+
+	<h3>TabBar</h3>
+
+	<TabBar position="right" on:change={(ev) => console.log(`tab ${ev.detail} selected`)}>
+		<Tab label="Tab 1" id="tab1" />
+		<Tab label="Tab 2" id="tab2" />
+		<Tab label="Tab 3" id="tab3" />
+	</TabBar>
+
+	<TabBar position="center" expand>
+		<Tab label="Tab 1" leftIcon={copyIcon} />
+		<Tab label="Tab 2" />
+		<Tab label="Tab 3" />
+	</TabBar>
+
+	<TabBar variant="outline">
+		<Tab label="Tab 1" />
+		<Tab label="Tab 2" />
+		<Tab label="Tab 3" />
+	</TabBar>
+
+	<TabBar position="center" variant="pill">
+		<Tab label="Tab 1" />
+		<Tab label="Tab 2" />
+		<Tab label="Tab 3" />
+	</TabBar>
+
+	<TabBar orientation="vertical">
+		<Tab label="Tab 1" />
+		<Tab label="Tab 2" />
+		<Tab label="Tab 3" />
+	</TabBar>
+
+	<TabBar orientation="vertical" variant="outline">
+		<Tab label="Tab 1" />
+		<Tab label="Tab 2" />
+		<Tab label="Tab 3" />
+	</TabBar>
+
+	<TabBar orientation="vertical" variant="pill">
+		<Tab label="Tab 1" />
+		<Tab label="Tab 2" />
+		<Tab label="Tab 3" />
+	</TabBar>
 
 	<div class="my-72" />
 </main>

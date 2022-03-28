@@ -6,6 +6,8 @@ const parts = {
 	Drawer: ['root', 'backdrop', 'drawer'],
 	Accordion: ['root'],
 	AccordionItem: ['root', 'headroot', 'headcontent', 'headicon', 'body'],
+	TabBar: ['root', 'spacer', 'tabscontainer'],
+	Tab: ['root', 'leftIcon', 'rightIcon', 'label'],
 } as const; // Must be as const so we can derive union types
 
 type Info = {
@@ -45,6 +47,24 @@ type Info = {
 		size: string;
 		iconPosition: 'left' | 'right';
 		isExpanded: boolean;
+	};
+	TabBar: {
+		variant: string;
+		size: string;
+		position: 'left' | 'right' | 'center';
+		orientation: 'horizontal' | 'vertical';
+		expand: boolean;
+	};
+	Tab: {
+		variant: string;
+		size: string;
+		orientation: 'horizontal' | 'vertical';
+		expand: boolean;
+		isActive: boolean;
+		isDisabled: boolean;
+		hasLabel: boolean;
+		hasLeftIcon: boolean;
+		hasRightIcon: boolean;
 	};
 };
 
