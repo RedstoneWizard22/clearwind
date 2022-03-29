@@ -7,7 +7,7 @@ const config = {
 	theme: {
 		extend: {
 			colors: {
-				primary: colors.indigo,
+				primary: colors.blue,
 				gray: colors.slate,
 				var: {
 					50: 'var(--tw-var-color-50)',

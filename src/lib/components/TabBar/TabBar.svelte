@@ -86,7 +86,6 @@
 				// If this is the first registered tab, and no default has been specified, make it active
 				if (tabIds.length === 1 && activeTab === undefined && initialTab === undefined) {
 					activeTabStore.set(id);
-					dispatch('change', id);
 				}
 			} else {
 				console.warn(`TabBar: Tab with id "${id}" already registered.`);

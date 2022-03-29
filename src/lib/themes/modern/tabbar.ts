@@ -7,23 +7,11 @@ export const tabBarTheme: ComponentTheme<'TabBar'> = {
 		const root = 'var-primary';
 		let spacer = 'border-gray-200';
 
-		if (info.orientation === 'vertical') {
-			switch (info.variant) {
-				case 'default':
-					spacer += ' border-r-2 ';
-					break;
-				case 'outline':
-					spacer += ' border-r ';
-					break;
-			}
-		} else {
-			switch (info.variant) {
-				case 'default':
-					spacer += ' border-b-2 ';
-					break;
-				case 'outline':
-					spacer += ' border-b ';
-					break;
+		if (info.variant == 'default' || info.variant == 'outline') {
+			if (info.orientation == 'vertical') {
+				spacer += ' border-r';
+			} else {
+				spacer += ' border-b';
 			}
 		}
 
@@ -46,8 +34,10 @@ export const tabTheme: ComponentTheme<'Tab'> = {
 			switch (info.variant) {
 				case 'default':
 					root +=
-						' border-r-2 ' +
-						(info.isActive ? 'border-var-500 text-var-500' : 'border-gray-200 text-gray-600');
+						' ' +
+						(info.isActive
+							? 'border-var-500 text-var-500 border-r-2'
+							: 'border-gray-200 text-gray-600 border-r');
 					break;
 				case 'outline':
 					root +=
@@ -66,8 +56,10 @@ export const tabTheme: ComponentTheme<'Tab'> = {
 			switch (info.variant) {
 				case 'default':
 					root +=
-						' border-b-2 ' +
-						(info.isActive ? 'border-var-500 text-var-600' : 'border-gray-200 text-gray-600');
+						' ' +
+						(info.isActive
+							? 'border-var-500 text-var-600 border-b-2'
+							: 'border-gray-200 text-gray-600 border-b');
 					break;
 				case 'outline':
 					root +=

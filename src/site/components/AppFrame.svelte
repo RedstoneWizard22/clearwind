@@ -4,6 +4,7 @@
 	import { expoOut } from 'svelte/easing';
 	import Header from './Header.svelte';
 	import { scrollLock } from '$lib/actions';
+	import { fade } from 'svelte/transition';
 
 	let navFloat = true;
 	let navOpen = false;
@@ -43,25 +44,29 @@
 
 <div>
 	<!-- backdrop -->
-	<div
-		class="fixed z-20 h-full w-full opacity-0"
-		class:hidden={!navFloat || !navOpen}
-		on:click={() => (navOpen = false)}
-	/>
+	{#if navFloat && navOpen}
+		<div
+			class="fixed z-20 h-full w-full bg-gray-900 opacity-50"
+			transition:fade={{ easing: expoOut }}
+			on:click={() => (navOpen = false)}
+		/>
+	{/if}
 	<!-- header -->
-	<div class="fixed top-0 left-0 z-20 h-16 w-full border-b bg-white">
+	<div class="fixed top-0 left-0 z-30 h-16 w-full bg-white px-5 shadow 2xl:px-52">
 		<Header {navOpen} on:navtoggle={() => (navOpen = !navOpen)} />
 	</div>
-	<!-- navbar -->
-	<div
-		class="fixed top-0 left-0 z-20 mt-16 h-full w-64 border-r bg-white"
-		style={`transform: translateX(${$navTx}%);`}
-	>
-		<div class="m-4">Navbar!</div>
-	</div>
-	<!-- content -->
-	<div class="mt-16 ml-0 md:ml-64">
-		<slot />
+	<div class="flex 2xl:px-52">
+		<!-- navbar -->
+		<nav
+			class="fixed top-0 left-0 z-20 w-64 flex-none bg-white md:sticky md:h-auto md:bg-transparent"
+			style={`transform: translateX(${$navTx}%);`}
+		>
+			<div class="top-0 left-0 h-screen pt-16 md:sticky">Navbar!</div>
+		</nav>
+		<!-- content -->
+		<main class="mt-16 flex-grow">
+			<slot />
+		</main>
 	</div>
 </div>
 
