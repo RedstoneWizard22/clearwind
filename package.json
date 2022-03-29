@@ -39,6 +39,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@floating-ui/dom": "^0.4.2",
 		"@iconify/svelte": "^2.2.0",
 		"@mariohamann/tailwindcss-var": "^0.1.1",
 		"svelte-portal": "^2.1.2",

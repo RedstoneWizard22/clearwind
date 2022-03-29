@@ -8,6 +8,7 @@ const parts = {
 	AccordionItem: ['root', 'headroot', 'headcontent', 'headicon', 'body'],
 	TabBar: ['root', 'spacer', 'tabscontainer'],
 	Tab: ['root', 'leftIcon', 'rightIcon', 'label'],
+	Tooltip: ['root', 'arrow'],
 } as const; // Must be as const so we can derive union types
 
 type Info = {
@@ -65,6 +66,10 @@ type Info = {
 		hasLabel: boolean;
 		hasLeftIcon: boolean;
 		hasRightIcon: boolean;
+	};
+	Tooltip: {
+		variant: string;
+		size: string;
 	};
 };
 

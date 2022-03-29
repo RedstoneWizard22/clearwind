@@ -15,6 +15,8 @@
 	import Revealer from '$lib/components/Revealer/Revealer.svelte';
 	import TabBar from '$lib/components/TabBar/TabBar.svelte';
 	import Tab from '$lib/components/TabBar/Tab.svelte';
+	import Tooltip from '$lib/components/Tooltip/Tooltip.svelte';
+	import FloatingTooltip from '$lib/components/Tooltip/FloatingTooltip.svelte';
 
 	let leftDrawerOpen = false;
 	let rightDrawerOpen = false;
@@ -229,6 +231,24 @@
 		<Tab label="Tab 2" />
 		<Tab label="Tab 3" />
 	</TabBar>
+
+	<h3>Tooltip</h3>
+
+	<Tooltip label="hello">
+		<Button>Hover me</Button>
+	</Tooltip>
+
+	<Tooltip label="hello" placement="right-start">
+		<Button>Hover me</Button>
+	</Tooltip>
+
+	<Tooltip label="hello" open openDelay={200} closeDelay={500} placement="top-end">
+		<Button>Always open</Button>
+	</Tooltip>
+
+	<FloatingTooltip label="float">
+		<Button>Floating Tooltip</Button>
+	</FloatingTooltip>
 
 	<div class="my-72" />
 </main>
