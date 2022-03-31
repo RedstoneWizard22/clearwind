@@ -8,7 +8,7 @@ export const windowTheme: ComponentTheme<'Window'> = {
 		const tabbase = 'h-full px-4';
 
 		return {
-			root: 'bg-white rounded-xl overflow-hidden shadow',
+			root: 'bg-white rounded-xl overflow-hidden shadow-lg',
 			head: 'bg-gray-100/60 h-10',
 			buttoncontainer: 'ml-3 mr-5 space-x-1.5',
 			close: button + ' bg-red-500',

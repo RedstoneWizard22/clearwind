@@ -1,1 +1,1 @@
-<h2>Style</h2>
+<h3>Style</h3>

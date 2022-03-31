@@ -36,23 +36,25 @@
 </script>
 
 {#if myData}
-	<div class="p-8 text-gray-800 md:px-0">
-		<h1 class="mb-2 capitalize">{myData.name}</h1>
+	<div class="text-gray-8000 pb-8">
+		<h1 class="mb-1 capitalize">{myData.name}</h1>
 		<p class="text-gray-500">{myData.description}</p>
 
-		<div class="mt-8 space-y-1.5 text-sm">
-			<div class="hover:text-blue-700">
+		<div class="mt-4 space-y-1.5 text-sm">
+			<div>
 				<a
-					href={`https://github.com/RedstoneWizard22/clearwind/${myData.componentSource}`}
+					class="hover:underline"
+					href={`https://github.com/RedstoneWizard22/clearwind/tree/master/${myData.componentSource}`}
 					target="_blank"
 				>
 					<Icon icon={githubFill} inline class="mr-1 inline" />
 					Component source
 				</a>
 			</div>
-			<div class="hover:text-blue-700">
+			<div>
 				<a
-					href={`https://github.com/RedstoneWizard22/clearwind/${myData.pageSource}`}
+					class="hover:underline"
+					href={`https://github.com/RedstoneWizard22/clearwind/tree/master/${myData.pageSource}`}
 					target="_blank"
 				>
 					<Icon icon={pencilIcon} inline class="mr-1 inline" />
@@ -62,10 +64,10 @@
 		</div>
 	</div>
 
-	<div class="px-8 md:px-0">
+	<div class="">
 		<TabBar
 			rco="-mb-[1px] text-sm text-gray-800"
-			variant="default"
+			variant="pill"
 			initialTab={currentTab}
 			on:change={(ev) => {
 				if (ev.detail == 'overview') {
@@ -75,13 +77,13 @@
 				}
 			}}
 		>
-			<Tab id="overview" rco="font-medium" label="Overview" />
-			<Tab id="details" rco="font-medium" label="Details" />
-			<Tab id="style" rco="font-medium" label="Style" />
+			<Tab id="overview" label="Overview" />
+			<Tab id="details" label="Details" />
+			<Tab id="style" label="Style" />
 		</TabBar>
 	</div>
 
-	<div class="p-8 text-gray-700 md:px-0">
+	<div class="py-6 text-gray-700">
 		{#if pagemodule}
 			{#if currentTab == 'details'}
 				<svelte:component this={pagemodule.default.Details} />

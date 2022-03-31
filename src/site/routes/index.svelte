@@ -34,7 +34,7 @@
 	let revealer2Open = false;
 </script>
 
-<main class="px-8 pt-2 text-gray-600">
+<main class="text-gray-600">
 	<h3>Overlays</h3>
 	<div class="relative mx-auto h-max w-max overflow-hidden rounded p-2 shadow">
 		<Overlay active>

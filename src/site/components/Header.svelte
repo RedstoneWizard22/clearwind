@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import tailwindIcon from '@iconify/icons-mdi/tailwind';
+	import thunderIcon from '@iconify/icons-akar-icons/thunder';
 	import githubFill from '@iconify/icons-akar-icons/github-fill';
 	import textAlignJustified from '@iconify/icons-akar-icons/text-align-justified';
 	import crossIcon from '@iconify/icons-akar-icons/cross';
@@ -23,10 +23,10 @@
 				class="mr-5 cursor-pointer text-xl md:hidden"
 			/>
 		</div>
-		<div class="rounded bg-primary-500 p-1 text-white">
-			<Icon icon={tailwindIcon} inline />
+		<div class="rounded-md bg-gradient-to-br from-sky-500 to-primary-500 p-1.5 text-white">
+			<Icon icon={thunderIcon} inline />
 		</div>
-		<span class="ml-3 font-semibold text-gray-900">Clearwind</span>
+		<span class="ml-3 font-bold text-gray-900">Clearwind</span>
 	</div>
 
 	<!-- Spacer -->
@@ -42,11 +42,11 @@
 			<div class="flex-grow" />
 			<Kbd rco="text-xs">Ctrl + K</Kbd>
 		</div>
-		<button class="rounded-md p-2 text-lg text-gray-500 hover:bg-gray-50 md:hidden">
+		<button class="rounded-md p-2 text-lg hover:bg-gray-50 md:hidden">
 			<Icon icon={searchIcon} inline />
 		</button>
 		<a
-			class="rounded-md p-2 text-lg text-gray-500 hover:bg-gray-50"
+			class="rounded-md p-2 text-lg hover:bg-gray-50"
 			href="https://github.com/RedstoneWizard22/clearwind"
 		>
 			<Icon icon={githubFill} inline />

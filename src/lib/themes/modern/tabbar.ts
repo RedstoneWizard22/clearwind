@@ -18,6 +18,7 @@ export const tabBarTheme: ComponentTheme<'TabBar'> = {
 		return {
 			root,
 			spacer,
+			tabscontainer: info.variant == 'pill' ? 'space-x-1' : '',
 		};
 	},
 };
@@ -56,22 +57,24 @@ export const tabTheme: ComponentTheme<'Tab'> = {
 			switch (info.variant) {
 				case 'default':
 					root +=
-						' ' +
+						' font-medium ' +
 						(info.isActive
 							? 'border-var-500 text-var-600 border-b-2'
 							: 'border-gray-200 text-gray-600 border-b');
 					break;
 				case 'outline':
 					root +=
-						' rounded-t border' +
+						' rounded-t border font-medium' +
 						(info.isActive
 							? ' border-gray-200 border-b-transparent bg-white'
 							: ' border-transparent border-b-gray-200');
 					break;
 				case 'pill':
 					root +=
-						' rounded mx-0.5 ' +
-						(info.isActive ? 'bg-var-50 text-var-700' : 'hover:bg-var-50 text-var-500');
+						' rounded ' +
+						(info.isActive
+							? 'bg-var-50 text-var-500 font-semibold'
+							: 'hover:bg-var-50 text-var-500 font-medium');
 					break;
 			}
 		}

@@ -52,10 +52,12 @@
 		/>
 	{/if}
 	<!-- header -->
-	<div class="fixed top-0 left-0 z-30 h-16 w-full bg-white px-5 shadow 2xl:px-52">
-		<Header {navOpen} on:navtoggle={() => (navOpen = !navOpen)} />
+	<div class="fixed top-0 left-0 z-30 h-16 w-full border-b bg-white">
+		<div class="mx-auto h-full max-w-screen-2xl px-6 2xl:px-0">
+			<Header {navOpen} on:navtoggle={() => (navOpen = !navOpen)} />
+		</div>
 	</div>
-	<div class="flex 2xl:px-52">
+	<div class="mx-auto flex max-w-screen-2xl px-7 2xl:px-0">
 		<!-- navbar -->
 		<nav
 			class="fixed top-0 left-0 z-20 w-64 flex-none bg-white md:sticky md:h-auto md:bg-transparent"
@@ -64,7 +66,7 @@
 			<div class="top-0 left-0 h-screen pt-16 md:sticky">Navbar!</div>
 		</nav>
 		<!-- content -->
-		<main class="mt-16 flex-grow">
+		<main class="mt-16 max-w-full flex-grow py-6">
 			<slot />
 		</main>
 	</div>
