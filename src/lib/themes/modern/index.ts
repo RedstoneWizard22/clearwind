@@ -7,6 +7,7 @@ import { drawerTheme } from './drawer';
 import { accordionTheme, accordionItemTheme } from './accordion';
 import { tabBarTheme, tabTheme } from './tabbar';
 import { tooltipTheme } from './tooltip';
+import { windowTheme } from './window';
 
 const theme: Theme = {
 	Overlay: overalyTheme,
@@ -19,6 +20,7 @@ const theme: Theme = {
 	TabBar: tabBarTheme,
 	Tab: tabTheme,
 	Tooltip: tooltipTheme,
+	Window: windowTheme,
 };
 
 export default theme;

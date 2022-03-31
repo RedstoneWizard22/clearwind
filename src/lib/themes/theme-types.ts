@@ -9,6 +9,21 @@ const parts = {
 	TabBar: ['root', 'spacer', 'tabscontainer'],
 	Tab: ['root', 'leftIcon', 'rightIcon', 'label'],
 	Tooltip: ['root', 'arrow'],
+	Window: [
+		'root',
+		'head',
+		'buttoncontainer',
+		'minimise',
+		'maximise',
+		'close',
+		'tabcontainer',
+		'tab',
+		'activetab',
+		'tabtitle',
+		'tabicon',
+		'body',
+		'placeholder',
+	],
 } as const; // Must be as const so we can derive union types
 
 type Info = {
@@ -68,6 +83,10 @@ type Info = {
 		hasRightIcon: boolean;
 	};
 	Tooltip: {
+		variant: string;
+		size: string;
+	};
+	Window: {
 		variant: string;
 		size: string;
 	};

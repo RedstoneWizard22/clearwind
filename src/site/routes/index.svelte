@@ -17,6 +17,11 @@
 	import Tab from '$lib/components/TabBar/Tab.svelte';
 	import Tooltip from '$lib/components/Tooltip/Tooltip.svelte';
 	import FloatingTooltip from '$lib/components/Tooltip/FloatingTooltip.svelte';
+	import Window from '$lib/components/Window/Window.svelte';
+	import WindowTab from '$lib/components/Window/WindowTab.svelte';
+	import fileTypeSvelte from '@iconify/icons-vscode-icons/file-type-svelte';
+	import fileTypeTypescriptOfficial from '@iconify/icons-vscode-icons/file-type-typescript-official';
+	import fileTypeCss from '@iconify/icons-vscode-icons/file-type-css';
 
 	let leftDrawerOpen = false;
 	let rightDrawerOpen = false;
@@ -249,6 +254,22 @@
 	<FloatingTooltip label="float">
 		<Button>Floating Tooltip</Button>
 	</FloatingTooltip>
+
+	<h3>Window</h3>
+
+	<Window>
+		<WindowTab title="Demo.svelte" icon={fileTypeSvelte}>
+			<div class="p-8">Demo goeth here!</div>
+		</WindowTab>
+		<WindowTab title="Demo2.ts" icon={fileTypeTypescriptOfficial}>
+			<div class="p-8">Demo2 goeth here!</div>
+		</WindowTab>
+		<WindowTab title="Demo3.css" icon={fileTypeCss}>
+			<div class="p-8">Demo3 goeth here!</div>
+		</WindowTab>
+	</Window>
+
+	<Window rco="mt-4" />
 
 	<div class="my-72" />
 </main>

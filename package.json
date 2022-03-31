@@ -15,8 +15,8 @@
 	"devDependencies": {
 		"@fontsource/inter": "^4.5.7",
 		"@fontsource/space-grotesk": "^4.5.5",
-		"@iconify/icons-akar-icons": "^1.2.3",
 		"@iconify/icons-mdi": "^1.2.4",
+		"@iconify/icons-vscode-icons": "^1.2.2",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@typescript-eslint/eslint-plugin": "^5.10.1",
@@ -41,6 +41,7 @@
 	"dependencies": {
 		"@floating-ui/dom": "^0.4.2",
 		"@iconify/svelte": "^2.2.0",
+		"@iconify/icons-akar-icons": "^1.2.3",
 		"@mariohamann/tailwindcss-var": "^0.1.1",
 		"svelte-portal": "^2.1.2",
 		"tailwind-merge": "^1.2.0"
