@@ -12,3 +12,10 @@
 		<slot />
 	</AppFrame>
 </ClearwindProvider>
+
+<svelte:head>
+	<link
+		rel="stylesheet"
+		href="https://unpkg.com/prism-themes@1.9.0/themes/prism-one-light.min.css"
+	/>
+</svelte:head>

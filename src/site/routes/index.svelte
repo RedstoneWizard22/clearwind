@@ -22,6 +22,7 @@
 	import fileTypeSvelte from '@iconify/icons-vscode-icons/file-type-svelte';
 	import fileTypeTypescriptOfficial from '@iconify/icons-vscode-icons/file-type-typescript-official';
 	import fileTypeCss from '@iconify/icons-vscode-icons/file-type-css';
+	import Prism from '../components/Prism.svelte';
 
 	let leftDrawerOpen = false;
 	let rightDrawerOpen = false;
@@ -32,6 +33,22 @@
 
 	let revealer1Open = false;
 	let revealer2Open = false;
+
+	const source = `
+\<script\>
+  let count = 0;
+\</script\>
+
+\<button on:click={ () => count++ }\>Hello\</button\>
+
+\<h1\>{ count }\</h1\>
+
+\<ul\>
+  {#each Array(10).map((_, i) => i) as }
+    \<li on:click={() => count = i}\>Set count to {i}\</li\>
+  {/each}
+\</ul\>
+`;
 </script>
 
 <main class="text-gray-600">
@@ -259,7 +276,9 @@
 
 	<Window>
 		<WindowTab title="Demo.svelte" icon={fileTypeSvelte}>
-			<div class="p-8">Demo goeth here!</div>
+			<div class="p-4 px-5 font-mono text-sm">
+				<Prism {source} language="svelte" noBackground />
+			</div>
 		</WindowTab>
 		<WindowTab title="Demo2.ts" icon={fileTypeTypescriptOfficial}>
 			<div class="p-8">Demo2 goeth here!</div>
