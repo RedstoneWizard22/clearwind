@@ -23,6 +23,7 @@
 	import fileTypeTypescriptOfficial from '@iconify/icons-vscode-icons/file-type-typescript-official';
 	import fileTypeCss from '@iconify/icons-vscode-icons/file-type-css';
 	import Prism from '../components/Prism.svelte';
+	import Alert from '$lib/components/Alert/Alert.svelte';
 
 	let leftDrawerOpen = false;
 	let rightDrawerOpen = false;
@@ -289,6 +290,18 @@
 	</Window>
 
 	<Window rco="mt-4" />
+
+	<h3>Alert</h3>
+
+	<Alert>GWAHAHAHAHAHA!</Alert>
+	<br />
+	<Alert type="error" title="Oh noes!">Something went horribly wrong!</Alert>
+	<br />
+	<Alert type="info" title="Hey!">Where's Perry?</Alert>
+	<br />
+	<Alert type="success" title="Yay!">You did it!</Alert>
+	<br />
+	<Alert type="warning" title="Warning!" withCloseButton>This is a warning!</Alert>
 
 	<div class="my-72" />
 </main>

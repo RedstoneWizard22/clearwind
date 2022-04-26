@@ -24,6 +24,7 @@ const parts = {
 		'body',
 		'placeholder',
 	],
+	Alert: ['root', 'icon', 'title', 'body', 'icondiv', 'contentdiv', 'closebutton'],
 } as const; // Must be as const so we can derive union types
 
 type Info = {
@@ -89,6 +90,11 @@ type Info = {
 	Window: {
 		variant: string;
 		size: string;
+	};
+	Alert: {
+		variant: string;
+		size: string;
+		type: 'success' | 'info' | 'warning' | 'error';
 	};
 };
 

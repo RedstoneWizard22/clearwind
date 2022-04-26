@@ -5,9 +5,10 @@
 
 @layer base {
 	body {
-		font-family: InterVariable, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+		font-family: HeeboVariable, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
 			Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji,
 			Segoe UI Symbol, Noto Color Emoji;
+		@apply bg-gray-50/50;
 	}
 
 	h1 {

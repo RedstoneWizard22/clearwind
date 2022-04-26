@@ -3,14 +3,14 @@
 	import theme from '$lib/themes/modern/index';
 
 	import '../app.css';
-	import '@fontsource/inter/variable.css';
+	import '@fontsource/heebo/variable.css';
 	import AppFrame from '../components/AppFrame.svelte';
 </script>
 
 <ClearwindProvider {theme}>
-	<AppFrame>
-		<slot />
-	</AppFrame>
+	<!-- <AppFrame> -->
+	<slot />
+	<!-- </AppFrame> -->
 </ClearwindProvider>
 
 <svelte:head>

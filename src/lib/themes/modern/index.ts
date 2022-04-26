@@ -8,6 +8,7 @@ import { accordionTheme, accordionItemTheme } from './accordion';
 import { tabBarTheme, tabTheme } from './tabbar';
 import { tooltipTheme } from './tooltip';
 import { windowTheme } from './window';
+import { alertTheme } from './alert';
 
 const theme: Theme = {
 	Overlay: overalyTheme,
@@ -21,6 +22,7 @@ const theme: Theme = {
 	Tab: tabTheme,
 	Tooltip: tooltipTheme,
 	Window: windowTheme,
+	Alert: alertTheme,
 };
 
 export default theme;
