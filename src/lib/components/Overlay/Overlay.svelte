@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RCOProp, COProp, ClearwindContext } from '$lib/themes/theme-types';
+	import type { RCOProp, COProp, ClearwindContext } from '$lib/_defines/types';
 	import { getContext } from 'svelte';
 
 	/// Get theme

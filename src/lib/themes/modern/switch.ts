@@ -1,8 +1,8 @@
-import type { ComponentTheme } from '../theme-types';
+import type { ComponentTheme } from '$lib/_defines/types';
 
 export const switchTheme: ComponentTheme<'Switch'> = {
-	variants: ['default'],
-	sizes: ['sm', 'md', 'lg'],
+	variants: ['default', 'sm', 'md', 'lg'],
+	defaultVariant: 'default md',
 	core(info) {
 		let base = '',
 			checkbox = '',

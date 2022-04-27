@@ -2,7 +2,7 @@
 	import { fade } from 'svelte/transition';
 	import type { EasingFunction, TransitionConfig } from 'svelte/transition';
 	import Portal from 'svelte-portal/src/Portal.svelte';
-	import type { RCOProp, ClearwindContext, COProp } from '$lib/themes/theme-types';
+	import type { RCOProp, ClearwindContext, COProp } from '$lib/_defines/types';
 	import { getContext } from 'svelte';
 	import { expoOut } from 'svelte/easing';
 	import { createEventDispatcher } from 'svelte';

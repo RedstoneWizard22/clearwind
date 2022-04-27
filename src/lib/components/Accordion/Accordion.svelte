@@ -17,7 +17,7 @@
 </script>
 
 <script lang="ts">
-	import type { RCOProp, ClearwindContext, COProp } from '$lib/themes/theme-types';
+	import type { RCOProp, ClearwindContext, COProp } from '$lib/_defines/types';
 	import type { IconifyIcon } from '@iconify/svelte';
 	import { getContext, setContext } from 'svelte';
 	import { cubicOut } from 'svelte/easing';

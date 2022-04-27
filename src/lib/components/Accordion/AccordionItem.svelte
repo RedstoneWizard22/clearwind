@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getRandomId } from '$lib/scripts/random-id';
-	import type { RCOProp, ClearwindContext, COProp } from '$lib/themes/theme-types';
+	import type { RCOProp, ClearwindContext, COProp } from '$lib/_defines/types';
 	import Icon, { type IconifyIcon } from '@iconify/svelte';
 	import { getContext, onMount, tick } from 'svelte';
 	import type { AccordionContext } from './Accordion.svelte';

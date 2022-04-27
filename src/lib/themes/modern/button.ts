@@ -1,8 +1,8 @@
-import type { ComponentTheme } from '../theme-types';
+import type { ComponentTheme } from '$lib/_defines/types';
 
 export const buttonTheme: ComponentTheme<'Button'> = {
-	variants: ['default', 'light', 'ghost', 'outline'],
-	sizes: ['sm', 'md', 'lg'],
+	variants: ['default', 'light', 'ghost', 'outline', 'sm', 'md', 'lg'],
+	defaultVariant: 'default md',
 	core(info) {
 		let base = '',
 			leftIcon = '',

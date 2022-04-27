@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RCOProp, ClearwindContext, COProp } from '$lib/themes/theme-types';
+	import type { RCOProp, ClearwindContext, COProp } from '$lib/_defines/types';
 	import { getContext } from 'svelte';
 	import { flip, shift, offset, hide, arrow } from '@floating-ui/dom';
 	import type { Placement } from '@floating-ui/dom';

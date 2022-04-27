@@ -1,8 +1,8 @@
-import type { ComponentTheme } from '../theme-types';
+import type { ComponentTheme } from '$lib/_defines/types';
 
 export const overalyTheme: ComponentTheme<'Overlay'> = {
 	variants: ['default', 'dark'],
-	sizes: ['md'],
+	defaultVariant: 'default',
 	core(info) {
 		return {
 			base: info.variant == 'dark' ? 'bg-black' : 'bg-white',

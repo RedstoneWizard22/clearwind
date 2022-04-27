@@ -1,8 +1,8 @@
-import type { ComponentTheme } from '../theme-types';
+import type { ComponentTheme } from '$lib/_defines/types';
 
 export const windowTheme: ComponentTheme<'Window'> = {
-	variants: ['default'],
-	sizes: ['md'],
+	variants: [],
+	defaultVariant: '',
 	core: () => {
 		const button = 'h-3 w-3 rounded-full';
 		const tabbase = 'h-full px-4';

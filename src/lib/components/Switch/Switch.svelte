@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getRandomId } from '$lib/scripts/random-id';
-	import type { RCOProp, COProp, ClearwindContext } from '$lib/themes/theme-types';
+	import type { RCOProp, COProp, ClearwindContext } from '$lib/_defines/types';
 	import { getContext } from 'svelte';
 	import Overlay from '../Overlay/Overlay.svelte';
 

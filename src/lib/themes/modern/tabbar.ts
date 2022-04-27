@@ -1,8 +1,8 @@
-import type { ComponentTheme } from '../theme-types';
+import type { ComponentTheme } from '$lib/_defines/types';
 
 export const tabBarTheme: ComponentTheme<'TabBar'> = {
 	variants: ['default', 'outline', 'pill'],
-	sizes: ['md'],
+	defaultVariant: 'default',
 	core: (info) => {
 		const root = 'var-primary';
 		let spacer = 'border-gray-200';
@@ -25,7 +25,7 @@ export const tabBarTheme: ComponentTheme<'TabBar'> = {
 
 export const tabTheme: ComponentTheme<'Tab'> = {
 	variants: ['default', 'outline', 'pill'],
-	sizes: ['md'],
+	defaultVariant: 'default',
 	core: (info) => {
 		const leftIcon = 'mr-1';
 		const rightIcon = 'ml-1';

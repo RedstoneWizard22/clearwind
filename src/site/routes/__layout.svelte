@@ -4,13 +4,10 @@
 
 	import '../app.css';
 	import '@fontsource/heebo/variable.css';
-	import AppFrame from '../components/AppFrame.svelte';
 </script>
 
 <ClearwindProvider {theme}>
-	<!-- <AppFrame> -->
 	<slot />
-	<!-- </AppFrame> -->
 </ClearwindProvider>
 
 <svelte:head>

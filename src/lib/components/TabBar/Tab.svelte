@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getRandomId } from '$lib/scripts/random-id';
-	import type { RCOProp, ClearwindContext, COProp } from '$lib/themes/theme-types';
+	import type { RCOProp, ClearwindContext, COProp } from '$lib/_defines/types';
 	import type { IconifyIcon } from '@iconify/svelte';
 	import Icon from '@iconify/svelte';
 	import { getContext, onMount } from 'svelte';

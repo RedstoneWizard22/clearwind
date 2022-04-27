@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { RCOProp, ClearwindContext, COProp } from '$lib/themes/theme-types';
+	import type { RCOProp, ClearwindContext, COProp } from '$lib/_defines/types';
 	import type { IconifyIcon } from '@iconify/svelte';
 	import { getContext, onMount } from 'svelte';
 	import type { WindowContext } from './Window.svelte';
