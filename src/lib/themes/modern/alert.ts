@@ -1,11 +1,14 @@
-import type { ComponentTheme } from '../theme-types';
-/// INCOMPLETE!!!
-// TODO: FINISH
+import type { ComponentTheme } from '$lib/_defines/types';
+
 export const alertTheme: ComponentTheme<'Alert'> = {
-	variants: ['default'],
-	sizes: ['md'],
-	core: (info) => {
-		let root = 'relative bg-var-50 rounded flex p-4 py-3';
+	variants: ['light', 'dark', 'outline', 'accent'],
+	defaultVariant: 'accent',
+	core: (info, variants) => {
+		let root = 'text-sm shadow-sm relative rounded flex p-4 py-3';
+		let icondiv = 'translate-y-0.5 pr-4 text-lg';
+		let title = 'font-semibold';
+		let body = info.hasTitle ? '' : 'pt-0.5';
+		let closebutton = 'absolute rounded top-3.5 right-3.5 text-sm active:translate-y-[1px]';
 
 		switch (info.type) {
 			case 'info':
@@ -22,12 +25,23 @@ export const alertTheme: ComponentTheme<'Alert'> = {
 				break;
 		}
 
-		return {
-			root,
-			icondiv: 'translate-y-0.5 pr-4 text-xl text-var-500',
-			title: 'font-semibold text-var-800',
-			body: 'text-var-700',
-			closebutton: 'absolute top-0 right-0 m-3 text-sm text-var-700 active:translate-y-[1px]',
-		};
+		if (variants.has('dark')) {
+			root += ' bg-var-500 text-white';
+		} else if (variants.has('light') || variants.has('accent') || variants.has('outline')) {
+			icondiv += ' text-var-500';
+			title += ' text-var-800';
+			body += ' text-var-700';
+			closebutton += ' text-var-700 bg-inherit';
+			if (variants.has('light')) {
+				root += ' bg-var-50';
+			} else if (variants.has('accent')) {
+				root +=
+					' overflow-clip bg-var-50 rounded-l-sm after:absolute after:h-full after:w-1 after:left-0 after:top-0 after:bg-var-400';
+			} else {
+				root += ' border border-var-500';
+			}
+		}
+
+		return { root, icondiv, title, body, closebutton };
 	},
 };

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import checkIcon from '@iconify/icons-akar-icons/check';
 	import Icon from '@iconify/svelte';
+	import { createEventDispatcher } from 'svelte';
 
 	export let selected = 'var-blue';
 
@@ -20,13 +21,18 @@
 		'var-fuchsia',
 		'var-pink',
 	];
+
+	const dispatch = createEventDispatcher();
 </script>
 
 <div class="grid grid-cols-6 gap-1.5">
 	{#each colors as color, i}
 		<button
 			class={`relative h-6 rounded bg-var-500 shadow-inner shadow-var-600 ${color}`}
-			on:click={() => (index = i)}
+			on:click={() => {
+				index = i;
+				dispatch('change', color);
+			}}
 		>
 			{#if i === index}
 				<Icon

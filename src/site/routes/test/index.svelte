@@ -14,8 +14,31 @@
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import ColorSwatch from './ColorSwatch.svelte';
 
-	let alertTitle = 'Warning!';
-	let alertMessage = 'This is a warning';
+	let alertTitle = 'Hey!';
+	let alertMessage = 'A man has fallen into the river in LEGO City!';
+	let alertType: 'success' | 'info' | 'warning' | 'error' = 'warning';
+	let alertVariant = 'accent';
+
+	let alertRco = '';
+	let col = 'var-amber';
+
+	function onTypeChange() {
+		alertRco = '';
+		switch (alertType) {
+			case 'success':
+				col = 'var-green';
+				break;
+			case 'info':
+				col = 'var-blue';
+				break;
+			case 'warning':
+				col = 'var-amber';
+				break;
+			case 'error':
+				col = 'var-red';
+				break;
+		}
+	}
 </script>
 
 <Header
@@ -91,26 +114,67 @@
 			<h3 class="mt-12 mb-2">Usage</h3>
 			<div class="mt-1.5 rounded-md bg-white shadow">
 				<div class="xl:flex">
-					<div class="flex-grow rounded p-8">
-						<Alert type="warning" title={alertTitle}>{alertMessage}</Alert>
+					<div class="relative flex-grow rounded p-8">
+						<div
+							class="top-1/2 left-1/2 w-full xl:absolute xl:-translate-x-1/2 xl:-translate-y-1/2 xl:px-8"
+						>
+							<Alert
+								type={alertType}
+								title={alertTitle}
+								variants={alertVariant}
+								rco={alertRco}
+								withCloseButton
+							>
+								{alertMessage}
+							</Alert>
+						</div>
 					</div>
 					<div
-						class="border-t border-gray-200 p-5 text-sm text-gray-700 xl:w-72 xl:border-t-0 xl:border-l"
+						class="border-t border-gray-200 p-5 text-sm text-gray-700 xl:w-80 xl:border-t-0 xl:border-l"
 					>
-						<p class="mb-1 font-medium">Alert Title</p>
+						<p class="mb-1 font-medium">Title</p>
 						<input
 							type="text"
 							class="w-full rounded border border-gray-300 p-1.5 px-3 shadow-sm focus:outline-none"
 							bind:value={alertTitle}
 						/>
-						<p class="mt-4 mb-1 font-medium">Alert Body</p>
+						<p class="mt-4 mb-1 font-medium">Children</p>
 						<input
 							type="text"
 							class="w-full rounded border border-gray-300 p-1.5 px-3 shadow-sm focus:outline-none"
 							bind:value={alertMessage}
 						/>
+						<p class="mt-4 mb-1 font-medium">Type</p>
+						<select
+							class="w-full rounded border border-gray-300 bg-white p-1.5 px-3 shadow-sm focus:outline-none"
+							name="type"
+							bind:value={alertType}
+							on:change={onTypeChange}
+						>
+							<option value="info">info</option>
+							<option value="success">success</option>
+							<option value="warning">warning</option>
+							<option value="error">error</option>
+						</select>
+						<p class="mt-4 mb-1 font-medium">Variant</p>
+						<select
+							class="w-full rounded border border-gray-300 bg-white p-1.5 px-3 shadow-sm focus:outline-none"
+							name="variant"
+							bind:value={alertVariant}
+						>
+							<option value="light">light</option>
+							<option value="dark">dark</option>
+							<option value="outline">outline</option>
+							<option value="accent">accent</option>
+						</select>
 						<p class="mt-4 mb-1 font-medium">Color</p>
-						<ColorSwatch selected="var-amber" />
+						<ColorSwatch
+							selected={col}
+							on:change={({ detail }) => {
+								console.log(detail);
+								alertRco = detail;
+							}}
+						/>
 					</div>
 				</div>
 				<div class="border-t border-gray-200 text-sm">
@@ -128,7 +192,7 @@
 	</div>
 </Header>
 
-<div class="fixed left-0 top-0 h-full w-60 border-r border-gray-200 bg-gray-100 pt-14">
+<div class="fixed left-0 top-0 -z-10 h-full w-60 bg-gray-100 pt-14 shadow-inner">
 	<div class="h-full w-full space-y-1 p-4 text-sm">
 		<button class="flex w-full items-center rounded-md p-2 px-2.5 font-medium text-gray-500">
 			<Icon icon={bookIcon} class="mr-3 text-lg" />

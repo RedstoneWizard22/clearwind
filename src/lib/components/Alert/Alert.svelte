@@ -1,14 +1,12 @@
+<!--
+  @component
+  Attract user attention with important static message
+-->
 <script lang="ts">
-	import type { RCOProp, ClearwindContext, COProp } from '$lib/themes/theme-types';
+	import type { ClearwindContext, RCOProp, COProp, VariantsProp } from '$lib/_defines/types';
 	import Icon from '@iconify/svelte';
 	import type { IconifyIcon } from '@iconify/svelte';
-	import { getContext } from 'svelte';
-
-	import triangleAlertFill from '@iconify/icons-akar-icons/triangle-alert-fill';
-	import infoFill from '@iconify/icons-akar-icons/info-fill';
-	import circleCheckFill from '@iconify/icons-akar-icons/circle-check-fill';
-	import circleAlertFill from '@iconify/icons-akar-icons/circle-alert-fill';
-	import crossIcon from '@iconify/icons-akar-icons/cross';
+	import { createEventDispatcher, getContext } from 'svelte';
 
 	/// Get theme
 	const clearwindContext = getContext<ClearwindContext>('clearwind');
@@ -16,57 +14,57 @@
 	/// Props
 	export let rco: RCOProp | undefined = undefined;
 	export let co: COProp<'Alert'> | undefined = undefined;
+	export let variants: VariantsProp | undefined = undefined;
 
-	export let variant: string = 'default';
-
+	/** Alert type: 'success' 'info' 'warning' or 'error' */
 	export let type: 'success' | 'info' | 'warning' | 'error' = 'warning';
-	export let title: string = '';
-	export let withCloseButton: boolean = false;
-	export let icon: IconifyIcon | undefined = undefined;
+	/** Title for the alert */
+	export let title = '';
+	/** True to enable the close button, will dispatch 'close' on click */
+	export let withCloseButton = false;
+	/** IconifyIcon to use, set to false for no icon */
+	export let icon: IconifyIcon | undefined | false = undefined;
 
 	/// Styling
 	$: classes = clearwindContext.getClasses({
 		component: 'Alert',
 		rcoTarget: 'root',
 		info: {
-			variant,
-			size: 'md',
 			type,
+			hasTitle: !!title,
+			hasBody: $$slots.default,
+			hasIcon: icon !== false,
 		},
+		variants,
 		rco,
 		co,
 	});
 
 	/// Logic
-	$: myIcon =
-		icon ??
-		(type === 'success'
-			? circleCheckFill
-			: type === 'error'
-			? circleAlertFill
-			: type === 'info'
-			? infoFill
-			: triangleAlertFill);
+	const icons = clearwindContext.theme.shared.icons;
+	$: myIcon = icon ?? icons[type];
+
+	const dispatch = createEventDispatcher();
 </script>
 
 <!-- part: root -->
 <div class={classes.root}>
-	<!-- part: icondiv -->
-	<div class={classes.icondiv}>
-		<!-- part: icon -->
-		<Icon icon={myIcon} class={classes.icon} />
-	</div>
+	{#if icon !== false}
+		<!-- part: icondiv -->
+		<div class={classes.icondiv}>
+			<!-- part: icon -->
+			<Icon icon={myIcon} class={classes.icon} />
+		</div>
+	{/if}
 
 	<!-- part: contentdiv -->
 	<div class={classes.contentdiv}>
 		<!-- part: title -->
-		<slot name="title">
-			{#if title}
-				<p class={classes.title}>
-					{title}
-				</p>
-			{/if}
-		</slot>
+		{#if title}
+			<p class={classes.title}>
+				{title}
+			</p>
+		{/if}
 		<!-- part: body -->
 		<div class={classes.body}>
 			<slot />
@@ -75,8 +73,8 @@
 
 	<!-- part: closebutton -->
 	{#if withCloseButton}
-		<button class={classes.closebutton}>
-			<Icon icon={crossIcon} />
+		<button class={classes.closebutton} on:click={() => dispatch('close')}>
+			<Icon icon={icons.close} />
 		</button>
 	{/if}
 </div>
