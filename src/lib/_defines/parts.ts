@@ -1,0 +1,30 @@
+const parts = {
+	Overlay: ['base'],
+	Button: ['base', 'content', 'leftIcon', 'rightIcon'],
+	Kbd: ['base'],
+	Switch: ['base', 'checkbox', 'label'],
+	Drawer: ['root', 'backdrop', 'drawer'],
+	Accordion: ['root'],
+	AccordionItem: ['root', 'headroot', 'headcontent', 'headicon', 'body'],
+	TabBar: ['root', 'spacer', 'tabscontainer'],
+	Tab: ['root', 'leftIcon', 'rightIcon', 'label'],
+	Tooltip: ['root', 'arrow'],
+	Window: [
+		'root',
+		'head',
+		'buttoncontainer',
+		'minimise',
+		'maximise',
+		'close',
+		'tabcontainer',
+		'tab',
+		'activetab',
+		'tabtitle',
+		'tabicon',
+		'body',
+		'placeholder',
+	],
+	Alert: ['root', 'icon', 'title', 'body', 'icondiv', 'contentdiv', 'closebutton'],
+} as const; // Must be as const so we can derive union types
+
+export default parts;

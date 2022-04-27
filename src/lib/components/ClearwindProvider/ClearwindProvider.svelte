@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { parts } from '$lib/themes/theme-types';
-	import type { ClearwindContext, Theme, Parts, COProp } from '$lib/themes/theme-types';
+	import parts from '$lib/_defines/parts';
+	import type { ClearwindContext, Theme, ComponentTheme, Parts, COProp } from '$lib/_defines/types';
 	import { setContext } from 'svelte';
 	import { extendTailwindMerge } from 'tailwind-merge';
 
@@ -18,29 +18,33 @@
 		theme,
 		twMerge: customTwMerge,
 		getClasses: (args) => {
-			const myTheme = theme[args.component];
+			const myTheme = theme[args.component] as ComponentTheme<typeof args.component>;
 
 			const classes = Object.fromEntries(parts[args.component].map((part) => [part, ''])) as Record<
 				Parts[typeof args.component],
 				string
 			>;
 
-			/// Check that theme and size props are correct
-			if ('variant' in args.info && !myTheme.variants.includes(args.info.variant)) {
-				console.warn(
-					`Variant '${args.info.variant}' does not exist in theme for component '${args.component}'`,
-					`\nAvailable variants: ${myTheme.variants.join(', ')}`
-				);
-			}
-			if (
-				'size' in args.info &&
-				!myTheme.sizes.includes(args.info.size as 'xs' | 'sm' | 'md' | 'lg' | 'xl')
-			) {
-				console.warn(
-					`Size '${args.info.size}' does not exist in theme for component '${args.component}'`,
-					`\nAvailable sizes: ${myTheme.sizes.join(', ')}`
-				);
-			}
+			/// Split variants prop into array if it's a (space separated) string
+			const variantsArray = args.variants
+				? Array.isArray(args.variants)
+					? args.variants
+					: args.variants.split(' ')
+				: Array.isArray(myTheme.defaultVariant)
+				? myTheme.defaultVariant
+				: myTheme.defaultVariant.split(' ');
+
+			const variants = new Set(variantsArray);
+
+			/// Check that all variants are valid
+			variantsArray.forEach((variant) => {
+				if (!variantsArray.includes(variant)) {
+					console.warn(
+						`Variant '${variant}' does not exist in theme for component '${args.component}'`,
+						`\nAvailable variants: ${myTheme.variants.join(', ')}`
+					);
+				}
+			});
 
 			/// Order matters!
 			// 1) Apply theme core
@@ -59,7 +63,7 @@
 			function applyCOProp(prop: COProp<typeof args.component>) {
 				let toMerge: Partial<Record<Parts[typeof args.component], string>>;
 				if (typeof prop === 'function') {
-					toMerge = prop(args.info);
+					toMerge = prop(args.info, variants);
 				} else {
 					toMerge = prop;
 				}

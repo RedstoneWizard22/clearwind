@@ -1,4 +1,5 @@
-import type { Theme } from '../theme-types';
+import type { Theme } from '$lib/_defines/types';
+
 import { buttonTheme } from './button';
 import { kbdTheme } from './kbd';
 import { overalyTheme } from './overlay';
@@ -9,6 +10,8 @@ import { tabBarTheme, tabTheme } from './tabbar';
 import { tooltipTheme } from './tooltip';
 import { windowTheme } from './window';
 import { alertTheme } from './alert';
+
+import { shared } from './shared';
 
 const theme: Theme = {
 	Overlay: overalyTheme,
@@ -23,6 +26,7 @@ const theme: Theme = {
 	Tooltip: tooltipTheme,
 	Window: windowTheme,
 	Alert: alertTheme,
+	shared,
 };
 
 export default theme;
