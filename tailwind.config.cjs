@@ -2,7 +2,7 @@ const variables = require('@mariohamann/tailwindcss-var');
 const colors = require('tailwindcss/colors');
 
 const config = {
-	content: ['./src/**/*.{html,js,svelte,ts}'],
+	content: ['./{lib,site}/**/*.{html,js,svelte,ts}'],
 
 	theme: {
 		extend: {

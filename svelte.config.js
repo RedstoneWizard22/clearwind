@@ -14,9 +14,18 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		files: {
-			routes: 'src/site/routes',
-			assets: 'src/site/assets',
-			template: 'src/site/app.html',
+			routes: 'site/routes',
+			assets: 'site/assets',
+			template: 'site/app.html',
+			lib: 'lib',
+		},
+		vite: {
+			server: {
+				fs: {
+					// Need to allow './site' so that './site/app.css' can be accessed
+					allow: ['site', 'lib'],
+				},
+			},
 		},
 	},
 };
