@@ -4,10 +4,13 @@
 
 	import '../app.css';
 	import '@fontsource/heebo/variable.css';
+	import AppShell from '../components/AppShell/AppShell.svelte';
 </script>
 
 <ClearwindProvider {theme}>
-	<slot />
+	<AppShell>
+		<slot />
+	</AppShell>
 </ClearwindProvider>
 
 <svelte:head>

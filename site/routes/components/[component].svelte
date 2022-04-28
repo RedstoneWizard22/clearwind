@@ -8,7 +8,7 @@
 	import Tab from '$lib/components/TabBar/Tab.svelte';
 	import { onMount } from 'svelte';
 	import Loader from '$lib/components/Loader/Loader.svelte';
-	import type { PageModule } from 'src/site/pages/components/types';
+	import type { PageModule } from 'site/pages/components/types';
 	import { goto } from '$app/navigation';
 
 	const myComponent = $page.params.component;
