@@ -6,6 +6,7 @@ import circleCheckFill from '@iconify/icons-akar-icons/circle-check-fill';
 import circleAlertFill from '@iconify/icons-akar-icons/circle-alert-fill';
 import checkIcon from '@iconify/icons-akar-icons/check';
 import crossIcon from '@iconify/icons-akar-icons/cross';
+import minusIcon from '@iconify/icons-akar-icons/minus';
 
 export const shared: Theme['shared'] = {
 	icons: {
@@ -15,5 +16,6 @@ export const shared: Theme['shared'] = {
 		info: infoFill,
 		check: checkIcon,
 		close: crossIcon,
+		indeterminate: minusIcon,
 	},
 };

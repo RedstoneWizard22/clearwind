@@ -68,6 +68,11 @@ type Info = {
 		hasBody: boolean;
 		hasIcon: boolean;
 	};
+	Checkbox: {
+		isDisabled: boolean;
+		isRequired: boolean;
+		hasLabel: boolean;
+	};
 };
 
 export default Info;

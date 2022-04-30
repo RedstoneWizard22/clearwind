@@ -10,6 +10,7 @@ import { tabBarTheme, tabTheme } from './tabbar';
 import { tooltipTheme } from './tooltip';
 import { windowTheme } from './window';
 import { alertTheme } from './alert';
+import { checkboxTheme } from './checkbox';
 
 import { shared } from './shared';
 
@@ -26,6 +27,7 @@ const theme: Theme = {
 	Tooltip: tooltipTheme,
 	Window: windowTheme,
 	Alert: alertTheme,
+	Checkbox: checkboxTheme,
 	shared,
 };
 

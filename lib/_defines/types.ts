@@ -32,6 +32,7 @@ type Theme = {
 			info: IconifyIcon;
 			check: IconifyIcon;
 			close: IconifyIcon;
+			indeterminate: IconifyIcon;
 		};
 	};
 };
