@@ -11,12 +11,17 @@ type Components = keyof Parts;
 type RCOProp = string;
 type COProp<T extends Components> =
 	| Partial<Record<Parts[T], string>>
-	| ((info: Info[T], variants: Set<string>) => Partial<Record<Parts[T], string>>);
-type VariantsProp = string | string[];
+	| ((info: Info[T], modifiers: Record<string, string>) => Partial<Record<Parts[T], string>>);
+type ModifiersProp = string | string[] | Record<string, string>;
+
+type ModifierDef = {
+	name: string;
+	options: string[];
+	default: string;
+};
 
 type ComponentTheme<T extends Components> = {
-	variants: string[];
-	defaultVariant: string | string[];
+	modifiers: ModifierDef[];
 	core: COProp<T>;
 	extension?: COProp<T>;
 };
@@ -44,7 +49,7 @@ type ClearwindContext = {
 		component: T;
 		rcoTarget: Parts[T];
 		info: Info[T];
-		variants?: VariantsProp;
+		modifiers?: ModifiersProp;
 		rco?: RCOProp;
 		co?: COProp<T>;
 		requiredClasses?: COProp<T>;
@@ -56,7 +61,7 @@ export type {
 	Components,
 	RCOProp,
 	COProp,
-	VariantsProp,
+	ModifiersProp,
 	ComponentTheme,
 	Theme,
 	Info,

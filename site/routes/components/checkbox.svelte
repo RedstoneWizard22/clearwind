@@ -7,7 +7,6 @@
 
 	import { Checkbox } from '$lib/components';
 	import ColorSwatch from '../../components/ColorSwatch.svelte';
-	import Button from '$lib/components/Button/Button.svelte';
 
 	let indeterminate = false;
 	let disabled = false;
@@ -60,13 +59,13 @@
 			>
 				<div class="space-y-3">
 					<Checkbox
-						variants="sm"
+						modifiers="sm"
 						label="Indeterminate"
 						name="indeterminate"
 						bind:checked={indeterminate}
 					/>
-					<Checkbox variants="sm" label="Disabled" name="disabled" bind:checked={disabled} />
-					<Checkbox variants="sm" label="Checked" name="checked" bind:checked />
+					<Checkbox modifiers="sm" label="Disabled" name="disabled" bind:checked={disabled} />
+					<Checkbox modifiers="sm" label="Checked" name="checked" bind:checked />
 				</div>
 				<p class="mt-4 mb-1 font-medium">Color</p>
 				<ColorSwatch selected={'var-blue'} on:change={(ev) => (rco = ev.detail)} />
@@ -84,10 +83,11 @@
 		{#each options as option}
 			<Checkbox label={option} value={option} bind:group />
 		{/each}
-		<Button
+		<button
+			class="rounded bg-primary-500 px-3 py-1 font-medium text-white shadow active:scale-95"
 			on:click={() => {
 				group = ['banana'];
-			}}>Reset</Button
+			}}>Reset</button
 		>
 		<p>Selected: {group.join(', ')}</p>
 	</div>

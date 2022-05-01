@@ -3,7 +3,7 @@
   Attract user attention with important static message
 -->
 <script lang="ts">
-	import type { ClearwindContext, RCOProp, COProp, VariantsProp } from '$lib/_defines/types';
+	import type { ClearwindContext, RCOProp, COProp, ModifiersProp } from '$lib/_defines/types';
 	import Icon from '@iconify/svelte';
 	import type { IconifyIcon } from '@iconify/svelte';
 	import { createEventDispatcher, getContext } from 'svelte';
@@ -14,7 +14,7 @@
 	/// Props
 	export let rco: RCOProp | undefined = undefined;
 	export let co: COProp<'Alert'> | undefined = undefined;
-	export let variants: VariantsProp | undefined = undefined;
+	export let modifiers: ModifiersProp | undefined = undefined;
 
 	/** Alert type: 'success' 'info' 'warning' or 'error' */
 	export let type: 'success' | 'info' | 'warning' | 'error' = 'warning';
@@ -35,7 +35,7 @@
 			hasBody: $$slots.default,
 			hasIcon: icon !== false,
 		},
-		variants,
+		modifiers,
 		rco,
 		co,
 	});

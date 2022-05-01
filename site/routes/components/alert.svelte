@@ -5,7 +5,7 @@
 	import chevronHorizontal from '@iconify/icons-akar-icons/chevron-horizontal';
 	import Icon from '@iconify/svelte';
 
-	import Alert from '$lib/components/Alert/Alert.svelte';
+	import { Alert } from '$lib/components';
 	import ColorSwatch from '../../components/ColorSwatch.svelte';
 
 	let alertTitle = 'Hey!';
@@ -38,7 +38,7 @@
 <div>
 	<h1 class="mb-2">Alert</h1>
 	<p class="text-gray-500">Attract user attention with important static message</p>
-	<div class="mt-6 space-x-2 overflow-x-scroll whitespace-nowrap rounded text-sm text-gray-800">
+	<div class="mt-6 space-x-2 overflow-x-auto whitespace-nowrap rounded text-sm text-gray-800">
 		<button class="rounded-md bg-gray-100 p-1 px-3">
 			<Icon inline icon={githubFill} class="mr-1.5 inline" />
 			<span>Component source</span>
@@ -63,7 +63,7 @@
 					<Alert
 						type={alertType}
 						title={alertTitle}
-						variants={alertVariant}
+						modifiers={alertVariant}
 						rco={alertRco}
 						withCloseButton
 					>

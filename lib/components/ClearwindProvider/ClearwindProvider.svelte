@@ -25,26 +25,34 @@
 				string
 			>;
 
-			/// Split variants prop into array if it's a (space separated) string
-			const variantsArray = args.variants
-				? Array.isArray(args.variants)
-					? args.variants
-					: args.variants.split(' ')
-				: Array.isArray(myTheme.defaultVariant)
-				? myTheme.defaultVariant
-				: myTheme.defaultVariant.split(' ');
+			/// Parse modifiers prop
+			let modifiers: Record<string, string> = {};
 
-			const variants = new Set(variantsArray);
+			if (typeof args.modifiers == 'object' && !Array.isArray(args.modifiers)) {
+				modifiers = args.modifiers;
+			} else {
+				const modifiersArray = args.modifiers
+					? typeof args.modifiers == 'string'
+						? args.modifiers.split(' ')
+						: args.modifiers
+					: [];
 
-			/// Check that all variants are valid
-			variantsArray.forEach((variant) => {
-				if (!variantsArray.includes(variant)) {
-					console.warn(
-						`Variant '${variant}' does not exist in theme for component '${args.component}'`,
-						`\nAvailable variants: ${myTheme.variants.join(', ')}`
-					);
+				for (const modifierDef of myTheme.modifiers) {
+					let count = 0;
+					for (const option of modifierDef.options) {
+						if (modifiersArray.includes(option)) {
+							modifiers[modifierDef.name] = option;
+							count++;
+						}
+					}
+
+					if (count == 0) {
+						modifiers[modifierDef.name] = modifierDef.default;
+					} else if (count > 1) {
+						error(`Modifier '${modifierDef.name}' has more than one option selected.`);
+					}
 				}
-			});
+			}
 
 			/// Order matters!
 			// 1) Apply theme core
@@ -63,7 +71,7 @@
 			function applyCOProp(prop: COProp<typeof args.component>) {
 				let toMerge: Partial<Record<Parts[typeof args.component], string>>;
 				if (typeof prop === 'function') {
-					toMerge = prop(args.info, variants);
+					toMerge = prop(args.info, modifiers);
 				} else {
 					toMerge = prop;
 				}
@@ -73,9 +81,17 @@
 						//@ts-expect-error: Typescript doesn't have enough info to know this is safe
 						classes[part] = customTwMerge(classes[part], value);
 					} else {
-						console.warn(`${part} is not a valid part for ${args.component}`);
+						console.warn(`[Clearwind] ${part} is not a valid part for ${args.component}`);
 					}
 				}
+			}
+
+			function error(message: string) {
+				console.error(
+					`[Clearwind] ${message}\n\nAvailable modifiers for ${args.component}:\n${myTheme.modifiers
+						.map((modifier) => `  - ${modifier.name}: ${modifier.options.join(', ')}`)
+						.join('\n')}`
+				);
 			}
 		},
 	});

@@ -1,9 +1,14 @@
 import type { ComponentTheme } from '$lib/_defines/types';
 
 export const checkboxTheme: ComponentTheme<'Checkbox'> = {
-	variants: ['sm', 'md', 'lg'],
-	defaultVariant: 'md',
-	core: (info, variants) => {
+	modifiers: [
+		{
+			name: 'size',
+			options: ['sm', 'md', 'lg'],
+			default: 'md',
+		},
+	],
+	core: (info, { size }) => {
 		let root = 'var-primary flex items-center';
 		let input =
 			'cursor-pointer appearance-none border shadow-sm rounded-sm transition-colors duration-150 border-gray-300 ring-var-200 focus:outline-none focus-visible:ring focus:border-var-500';
@@ -20,21 +25,25 @@ export const checkboxTheme: ComponentTheme<'Checkbox'> = {
 			icon += ' text-white';
 		}
 
-		if (variants.has('sm')) {
-			input += ' h-[1.125rem] w-[1.125rem]';
-			checkboxdiv += ' h-[1.125rem] w-[1.125rem]';
-			root += ' text-sm';
-			label += ' pl-2';
-		} else if (variants.has('md')) {
-			input += ' h-5 w-5';
-			checkboxdiv += ' h-5 w-5';
-			root += ' text-base';
-			label += ' pl-2.5';
-		} else if (variants.has('lg')) {
-			input += ' h-[1.375rem] w-[1.375rem]';
-			checkboxdiv += ' h-[1.375rem] w-[1.375rem]';
-			root += ' text-lg';
-			label += ' pl-3';
+		switch (size) {
+			case 'sm':
+				input += ' h-[1.125rem] w-[1.125rem]';
+				checkboxdiv += ' h-[1.125rem] w-[1.125rem]';
+				root += ' text-sm';
+				label += ' pl-2';
+				break;
+			case 'md':
+				input += ' h-5 w-5';
+				checkboxdiv += ' h-5 w-5';
+				root += ' text-base';
+				label += ' pl-2.5';
+				break;
+			case 'lg':
+				input += ' h-[1.375rem] w-[1.375rem]';
+				checkboxdiv += ' h-[1.375rem] w-[1.375rem]';
+				root += ' text-lg';
+				label += ' pl-3';
+				break;
 		}
 
 		return { root, input, icon, checkboxdiv, label };

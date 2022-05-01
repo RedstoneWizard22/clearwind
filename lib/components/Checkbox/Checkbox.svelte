@@ -4,7 +4,7 @@
 -->
 <script lang="ts">
 	import { getRandomId } from '$lib/scripts/random-id';
-	import type { RCOProp, ClearwindContext, COProp, VariantsProp } from '$lib/_defines/types';
+	import type { RCOProp, ClearwindContext, COProp, ModifiersProp } from '$lib/_defines/types';
 	import Icon from '@iconify/svelte';
 	import type { IconifyIcon } from '@iconify/svelte';
 	import { getContext } from 'svelte';
@@ -17,7 +17,7 @@
 	/// Props
 	export let rco: RCOProp | undefined = undefined;
 	export let co: COProp<'Checkbox'> | undefined = undefined;
-	export let variants: VariantsProp | undefined = undefined;
+	export let modifiers: ModifiersProp | undefined = undefined;
 
 	/** Icon to use when the checkbox is checked */
 	export let checkIcon: IconifyIcon = icons.check;
@@ -51,7 +51,6 @@
 	$: classes = clearwindContext.getClasses({
 		component: 'Checkbox',
 		rcoTarget: 'root',
-		variants,
 		info: {
 			isDisabled: disabled,
 			isRequired: required,
@@ -61,6 +60,7 @@
 			checkboxdiv: 'relative',
 			icon: 'absolute pointer-events-none',
 		},
+		modifiers,
 		rco,
 		co,
 	});
