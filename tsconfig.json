@@ -29,7 +29,9 @@
 		"checkJs": true,
 		"paths": {
 			"$lib": ["lib/"],
-			"$lib/*": ["lib/*"]
+			"$lib/*": ["lib/*"],
+			"$site": ["site/"],
+			"$site/*": ["site/*"]
 		}
 	},
 	"include": [

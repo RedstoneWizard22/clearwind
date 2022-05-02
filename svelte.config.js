@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
+import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -24,6 +25,11 @@ const config = {
 				fs: {
 					// Need to allow './site' so that './site/app.css' can be accessed
 					allow: ['site', 'lib'],
+				},
+			},
+			resolve: {
+				alias: {
+					$site: path.resolve('./site'),
 				},
 			},
 		},
