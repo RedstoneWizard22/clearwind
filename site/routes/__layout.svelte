@@ -3,7 +3,6 @@
 	import theme from '$lib/themes/modern/index';
 
 	import '../app.css';
-	import '@fontsource/heebo/variable.css';
 	import AppShell from '../components/AppShell/AppShell.svelte';
 </script>
 
