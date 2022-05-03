@@ -1,5 +1,5 @@
 <script lang="ts">
-	import checkIcon from '@iconify/icons-akar-icons/check';
+	import checkIcon from '@iconify/icons-akar-icons/check.js';
 	import Icon from '@iconify/svelte';
 	import { createEventDispatcher } from 'svelte';
 

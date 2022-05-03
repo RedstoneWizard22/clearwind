@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import thunderIcon from '@iconify/icons-akar-icons/thunder';
-	import searchIcon from '@iconify/icons-akar-icons/search';
-	import githubFill from '@iconify/icons-akar-icons/github-fill';
+	import thunderIcon from '@iconify/icons-akar-icons/thunder.js';
+	import searchIcon from '@iconify/icons-akar-icons/search.js';
+	import githubFill from '@iconify/icons-akar-icons/github-fill.js';
 
-	import textAlignJustified from '@iconify/icons-akar-icons/text-align-justified';
-	import crossIcon from '@iconify/icons-akar-icons/cross';
+	import textAlignJustified from '@iconify/icons-akar-icons/text-align-justified.js';
+	import crossIcon from '@iconify/icons-akar-icons/cross.js';
 	import { createEventDispatcher } from 'svelte';
 
 	/// Logic

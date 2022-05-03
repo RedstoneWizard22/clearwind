@@ -2,8 +2,8 @@
 	import Button from '$lib/components/Button/Button.svelte';
 	import Overlay from '$lib/components/Overlay/Overlay.svelte';
 
-	import copyIcon from '@iconify/icons-akar-icons/copy';
-	import checkIcon from '@iconify/icons-akar-icons/check';
+	import copyIcon from '@iconify/icons-akar-icons/copy.js';
+	import checkIcon from '@iconify/icons-akar-icons/check.js';
 	import Loader from '$lib/components/Loader/Loader.svelte';
 	import Kbd from '$lib/components/Kbd/Kbd.svelte';
 	import Switch from '$lib/components/Switch/Switch.svelte';
@@ -19,9 +19,9 @@
 	import FloatingTooltip from '$lib/components/Tooltip/FloatingTooltip.svelte';
 	import Window from '$lib/components/Window/Window.svelte';
 	import WindowTab from '$lib/components/Window/WindowTab.svelte';
-	import fileTypeSvelte from '@iconify/icons-vscode-icons/file-type-svelte';
-	import fileTypeTypescriptOfficial from '@iconify/icons-vscode-icons/file-type-typescript-official';
-	import fileTypeCss from '@iconify/icons-vscode-icons/file-type-css';
+	import fileTypeSvelte from '@iconify/icons-vscode-icons/file-type-svelte.js';
+	import fileTypeTypescriptOfficial from '@iconify/icons-vscode-icons/file-type-typescript-official.js';
+	import fileTypeCss from '@iconify/icons-vscode-icons/file-type-css.js';
 	import Prism from '../components/Prism.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
 

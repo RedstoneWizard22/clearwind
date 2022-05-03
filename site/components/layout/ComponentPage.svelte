@@ -1,7 +1,7 @@
 <script lang="ts">
-	import githubFill from '@iconify/icons-akar-icons/github-fill';
-	import pencilIcon from '@iconify/icons-akar-icons/pencil';
-	import newspaperIcon from '@iconify/icons-akar-icons/newspaper';
+	import githubFill from '@iconify/icons-akar-icons/github-fill.js';
+	import pencilIcon from '@iconify/icons-akar-icons/pencil.js';
+	import newspaperIcon from '@iconify/icons-akar-icons/newspaper.js';
 	import Icon from '@iconify/svelte';
 
 	export let name: string;

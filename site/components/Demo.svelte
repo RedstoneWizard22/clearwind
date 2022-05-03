@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import chevronHorizontal from '@iconify/icons-akar-icons/chevron-horizontal';
+	import chevronHorizontal from '@iconify/icons-akar-icons/chevron-horizontal.js';
 </script>
 
 <div class="rounded-md bg-white shadow">

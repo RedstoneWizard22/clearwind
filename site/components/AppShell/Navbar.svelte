@@ -1,9 +1,9 @@
 <script lang="ts">
 	import Icon from '@iconify/svelte';
-	import bookIcon from '@iconify/icons-akar-icons/book';
-	import pencilIcon from '@iconify/icons-akar-icons/pencil';
-	import toggleOffFill from '@iconify/icons-akar-icons/toggle-off-fill';
-	import playIcon from '@iconify/icons-akar-icons/play';
+	import bookIcon from '@iconify/icons-akar-icons/book.js';
+	import pencilIcon from '@iconify/icons-akar-icons/pencil.js';
+	import toggleOffFill from '@iconify/icons-akar-icons/toggle-off-fill.js';
+	import playIcon from '@iconify/icons-akar-icons/play.js';
 </script>
 
 <div class="flex h-full w-full flex-col bg-gray-100 p-4 shadow-inner">

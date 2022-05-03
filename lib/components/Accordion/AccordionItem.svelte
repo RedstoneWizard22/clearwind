@@ -4,7 +4,7 @@
 	import Icon, { type IconifyIcon } from '@iconify/svelte';
 	import { getContext, onMount, tick } from 'svelte';
 	import type { AccordionContext } from './Accordion.svelte';
-	import chevronDown from '@iconify/icons-akar-icons/chevron-down';
+	import chevronDown from '@iconify/icons-akar-icons/chevron-down.js';
 	import { tweened } from 'svelte/motion';
 
 	/// Get theme
