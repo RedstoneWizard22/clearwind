@@ -3,15 +3,12 @@
 	import 'prism-svelte';
 	import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
 	import { onMount } from 'svelte';
-	import copyIcon from '@iconify/icons-akar-icons/copy';
-	import checkIcon from '@iconify/icons-akar-icons/check';
-	import Icon from '@iconify/svelte';
-	import Tooltip from '$lib/components/Tooltip/Tooltip.svelte';
+	// import Tooltip from '$lib/components/Tooltip/Tooltip.svelte';
 
 	/// Props
 	export let source: string;
 	export let language: string;
-	export let noBackground: boolean = false;
+	export let noBackground: boolean = true;
 	export let rco: string = '';
 
 	/// Logic
@@ -57,13 +54,13 @@
   </pre>
 
 	<button class="absolute top-0 right-0 text-lg text-gray-500" on:click={onCopy}>
-		<Tooltip
+		<!-- <Tooltip
 			rco={copied ? 'bg-green-700' : ''}
 			label={copied ? 'Copied!' : 'Copy'}
 			placement="left"
 			gutter={10}
 		>
 			<Icon icon={copied ? checkIcon : copyIcon} />
-		</Tooltip>
+		</Tooltip> -->
 	</button>
 </div>
