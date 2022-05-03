@@ -71,7 +71,8 @@ type Info = {
 	Checkbox: {
 		isDisabled: boolean;
 		isRequired: boolean;
-		hasLabel: boolean;
+		isIndeterminate: boolean;
+		isChecked: boolean;
 	};
 };
 

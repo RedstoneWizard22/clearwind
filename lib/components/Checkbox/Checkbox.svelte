@@ -7,7 +7,7 @@
 	import type { RCOProp, ClearwindContext, COProp, ModifiersProp } from '$lib/_defines/types';
 	import Icon from '@iconify/svelte';
 	import type { IconifyIcon } from '@iconify/svelte';
-	import { getContext } from 'svelte';
+	import { createEventDispatcher, getContext } from 'svelte';
 	import { fly } from 'svelte/transition';
 
 	/// Get theme
@@ -54,7 +54,8 @@
 		info: {
 			isDisabled: disabled,
 			isRequired: required,
-			hasLabel: !!label,
+			isChecked: checked,
+			isIndeterminate: indeterminate,
 		},
 		requiredClasses: {
 			checkboxdiv: 'relative',
@@ -66,9 +67,13 @@
 	});
 
 	/// Logic
-	$: checked = Array.isArray(group) ? group.includes(value) : checked;
+	const dispatch = createEventDispatcher();
+
+	$: checked = indeterminate ? false : Array.isArray(group) ? group.includes(value) : checked;
 
 	function onChange() {
+		if (indeterminate) return;
+
 		if (Array.isArray(group)) {
 			group = group.includes(value)
 				? group.filter((_value) => _value !== value)
@@ -94,14 +99,16 @@
 			{value}
 			{disabled}
 			{tabIndex}
-			on:change
 			on:focus
 			on:blur
-			on:change={onChange}
+			on:change={(ev) => {
+				dispatch('change', ev.currentTarget.checked);
+				onChange();
+			}}
 		/>
 		<!-- part: icon -->
-		{#if checked}
-			<div transition:fly={{ y: 4, duration: 150 }} class={classes.icon}>
+		{#if checked || indeterminate}
+			<div transition:fly={{ y: 5, duration: 250 }} class={classes.icon}>
 				<Icon icon={indeterminate ? intermediateIcon : checkIcon} />
 			</div>
 		{/if}
