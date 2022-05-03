@@ -65,7 +65,7 @@
 		class="fixed top-0 left-0 -z-10 h-full w-full bg-white md:left-60"
 		style={mobile ? `transform: translateX(${$navTx * 15}rem)` : ''}
 	>
-		<div class="h-full w-full bg-gray-50/60" />
+		<div class="h-full w-full bg-gray-50/75" />
 	</div>
 	<!-- A shade that when clicked closes the navbar (only visible in mobile mode) -->
 	{#if mobile && $navTx != 0}

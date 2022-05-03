@@ -1,45 +1,26 @@
 <script lang="ts">
-	import Window from '$lib/components/Window/Window.svelte';
-	import WindowTab from '$lib/components/Window/WindowTab.svelte';
-	import desktopDevice from '@iconify/icons-akar-icons/desktop-device';
-	import type { IconifyIcon } from '@iconify/svelte';
-	import Prism from './Prism.svelte';
-
-	export let title: string;
-
-	type CodeTab = {
-		title: string;
-		icon?: IconifyIcon;
-		source: string;
-		language: string;
-	};
-
-	export let codetabs: CodeTab[] = [];
+	import Icon from '@iconify/svelte';
+	import chevronHorizontal from '@iconify/icons-akar-icons/chevron-horizontal';
 </script>
 
-<h3 class="mb-1">{title}</h3>
-<slot name="description" />
-<div class="my-4">
-	<Window>
-		<WindowTab icon={desktopDevice} title="Output">
-			<div class="p-6">
-				<slot name="content" />
+<div class="rounded-md bg-white shadow">
+	<div class="xl:flex">
+		<!-- content -->
+		<div class="relative flex flex-grow items-center justify-center p-6 md:p-8">
+			<slot />
+		</div>
+		<!-- controls -->
+		{#if $$slots.controls}
+			<div class="space-y-4 border-t border-gray-200 p-5 xl:w-80 xl:border-t-0 xl:border-l">
+				<slot name="controls" />
 			</div>
-		</WindowTab>
-		{#each codetabs as tab}
-			<WindowTab icon={tab.icon} title={tab.title}>
-				<div class="p-4 px-5 font-mono text-sm">
-					<Prism source={tab.source} language={tab.language} noBackground />
-				</div>
-			</WindowTab>
-		{/each}
-	</Window>
+		{/if}
+	</div>
+	<!-- Show code button -->
+	<div class="border-t border-gray-200 text-sm">
+		<button class="mx-auto block py-1">
+			<Icon icon={chevronHorizontal} inline class="mr-1.5 inline" />
+			<span>Show Code</span>
+		</button>
+	</div>
 </div>
-<div class="h-8" />
-
-<!-- <h3 class="mb-1">{title}</h3>
-<slot name="description" />
-<div class="my-4 rounded-md border border-gray-200 bg-white p-6">
-	<slot name="content" />
-</div>
-<div class="h-8" /> -->
