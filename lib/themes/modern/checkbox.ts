@@ -9,9 +9,9 @@ export const checkboxTheme: ComponentTheme<'Checkbox'> = {
 		},
 	],
 	core: (info, { size }) => {
-		let root = 'var-primary flex items-center';
+		let root = '$color-primary flex items-center';
 		let input =
-			'cursor-pointer appearance-none border rounded-sm transition-colors duration-150 border-gray-300 ring-var-200 focus:outline-none focus-visible:ring focus:border-var-500';
+			'cursor-pointer appearance-none border rounded-sm transition-colors duration-150 border-gray-300 ring-$color-200 focus:outline-none focus-visible:ring focus:border-$color-500';
 		let icon = 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2';
 		let checkboxdiv = '';
 		let label = 'cursor-pointer leading-none';
@@ -23,7 +23,7 @@ export const checkboxTheme: ComponentTheme<'Checkbox'> = {
 		} else {
 			icon += ' text-white';
 			if (info.isIndeterminate || info.isChecked) {
-				input += ' bg-var-500 border-var-500';
+				input += ' bg-$color-500 border-$color-500';
 			} else {
 				input += ' bg-white';
 			}

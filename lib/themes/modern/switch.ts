@@ -8,9 +8,9 @@ export const switchTheme: ComponentTheme<'Switch'> = {
 			checkbox = '',
 			label = '';
 
-		base += ' var-primary';
+		base += ' $color-primary';
 		checkbox +=
-			' inline-flex flex-shrink-0 appearance-none items-center rounded-full border border-gray-300 checked:border-var-500 bg-gray-200 p-0.5 duration-150 ease-in-out focus-visible:ring ring-var-300 checked:bg-var-500';
+			' inline-flex flex-shrink-0 appearance-none items-center rounded-full border border-gray-300 checked:border-$color-500 bg-gray-200 p-0.5 duration-150 ease-in-out focus-visible:ring ring-$color-300 checked:bg-$color-500';
 		checkbox +=
 			' after:rounded-full after:bg-white after:duration-150 after:border after:border-gray-300 after:checked:border-none';
 

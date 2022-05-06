@@ -9,7 +9,7 @@ export const buttonTheme: ComponentTheme<'Button'> = {
 			rightIcon = '';
 
 		base +=
-			' var-primary font-semibold rounded focus-visible:ring transition-shadow duration-150 overflow-hidden';
+			' $color-primary font-semibold rounded focus-visible:ring transition-shadow duration-150 overflow-hidden';
 
 		if (info.hasLeftIcon && info.hasContent) {
 			leftIcon += ' mr-1.5';
@@ -35,19 +35,19 @@ export const buttonTheme: ComponentTheme<'Button'> = {
 		} else {
 			switch (info.variant) {
 				case 'default':
-					base += ' bg-var-500 text-white hover:bg-var-600 focus-visible:ring-var-300';
+					base += ' bg-$color-500 text-white hover:bg-$color-600 focus-visible:ring-$color-300';
 					break;
 				case 'light':
 					base +=
-						' bg-var-100 text-var-600 hover:bg-var-200 focus:bg-var-200 focus-visible:ring-var-100';
+						' bg-$color-100 text-$color-600 hover:bg-$color-200 focus:bg-$color-200 focus-visible:ring-$color-100';
 					break;
 				case 'outline':
 					base +=
-						' bg-transparent border text-var-600 hover:bg-var-100 border-var-400 focus-visible:ring-var-300';
+						' bg-transparent border text-$color-600 hover:bg-$color-100 border-$color-400 focus-visible:ring-$color-300';
 					break;
 				case 'ghost':
 					base +=
-						' bg-transparent border-none text-var-600 hover:bg-var-100 focus-visible:ring-var-300';
+						' bg-transparent border-none text-$color-600 hover:bg-$color-100 focus-visible:ring-$color-300';
 					break;
 			}
 

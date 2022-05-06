@@ -4,7 +4,7 @@ export const tabBarTheme: ComponentTheme<'TabBar'> = {
 	variants: ['default', 'outline', 'pill'],
 	defaultVariant: 'default',
 	core: (info) => {
-		const root = 'var-primary';
+		const root = '$color-primary';
 		let spacer = 'border-gray-200';
 
 		if (info.variant == 'default' || info.variant == 'outline') {
@@ -37,7 +37,7 @@ export const tabTheme: ComponentTheme<'Tab'> = {
 					root +=
 						' ' +
 						(info.isActive
-							? 'border-var-500 text-var-500 border-r-2'
+							? 'border-$color-500 text-$color-500 border-r-2'
 							: 'border-gray-200 text-gray-600 border-r');
 					break;
 				case 'outline':
@@ -50,7 +50,7 @@ export const tabTheme: ComponentTheme<'Tab'> = {
 				case 'pill':
 					root +=
 						' rounded my-0.5 ' +
-						(info.isActive ? 'bg-var-50 text-var-700' : 'hover:bg-var-50 text-var-500');
+						(info.isActive ? 'bg-$color-50 text-$color-700' : 'hover:bg-$color-50 text-$color-500');
 					break;
 			}
 		} else {
@@ -59,7 +59,7 @@ export const tabTheme: ComponentTheme<'Tab'> = {
 					root +=
 						' font-medium ' +
 						(info.isActive
-							? 'border-var-500 text-var-600 border-b-2'
+							? 'border-$color-500 text-$color-600 border-b-2'
 							: 'border-gray-200 text-gray-600 border-b');
 					break;
 				case 'outline':
@@ -73,8 +73,8 @@ export const tabTheme: ComponentTheme<'Tab'> = {
 					root +=
 						' rounded ' +
 						(info.isActive
-							? 'bg-var-50 text-var-500 font-semibold'
-							: 'hover:bg-var-50 text-var-500 font-medium');
+							? 'bg-$color-50 text-$color-500 font-semibold'
+							: 'hover:bg-$color-50 text-$color-500 font-medium');
 					break;
 			}
 		}
