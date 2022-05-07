@@ -3,24 +3,24 @@
 	import Icon from '@iconify/svelte';
 	import { createEventDispatcher } from 'svelte';
 
-	export let selected = 'var-blue';
+	export let selected = '$color-blue';
 	export let title = 'Color';
 
 	$: index = colors.findIndex((col) => col === selected);
 
 	let colors = [
-		'var-gray',
-		'var-red',
-		'var-amber',
-		'var-lime',
-		'var-green',
-		'var-teal',
-		'var-sky',
-		'var-blue',
-		'var-indigo',
-		'var-purple',
-		'var-fuchsia',
-		'var-pink',
+		'$color-gray',
+		'$color-red',
+		'$color-amber',
+		'$color-lime',
+		'$color-green',
+		'$color-teal',
+		'$color-sky',
+		'$color-blue',
+		'$color-indigo',
+		'$color-purple',
+		'$color-fuchsia',
+		'$color-pink',
 	];
 
 	const dispatch = createEventDispatcher();
@@ -33,7 +33,7 @@
 	<div class="grid grid-cols-6 gap-1.5">
 		{#each colors as color, i}
 			<button
-				class={`relative h-6 rounded bg-var-500 shadow-inner shadow-var-600 ${color}`}
+				class={`relative h-6 rounded bg-$color-500 shadow-inner shadow-$color-600 ${color}`}
 				on:click={() => {
 					index = i;
 					dispatch('change', color);

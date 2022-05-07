@@ -17,30 +17,30 @@ export const alertTheme: ComponentTheme<'Alert'> = {
 
 		switch (info.type) {
 			case 'info':
-				root += ' var-blue';
+				root += ' $color-blue';
 				break;
 			case 'success':
-				root += ' var-green';
+				root += ' $color-green';
 				break;
 			case 'warning':
-				root += ' var-amber';
+				root += ' $color-amber';
 				break;
 			case 'error':
-				root += ' var-red';
+				root += ' $color-red';
 				break;
 		}
 
 		if (variant == 'dark') {
-			root += ' bg-var-500 text-white';
+			root += ' bg-$color-500 text-white';
 		} else if (variant == 'accent' || variant == 'light') {
-			root += ' bg-var-50';
-			icondiv += ' text-var-500';
-			title += ' text-var-800';
-			body += ' text-var-700';
-			closebutton += ' text-var-700 bg-inherit';
+			root += ' bg-$color-50';
+			icondiv += ' text-$color-500';
+			title += ' text-$color-800';
+			body += ' text-$color-700';
+			closebutton += ' text-$color-700 bg-inherit';
 			if (variant == 'accent') {
 				root +=
-					' overflow-clip rounded-l-sm after:absolute after:h-full after:w-1 after:left-0 after:top-0 after:bg-var-400';
+					' overflow-clip rounded-l-sm after:absolute after:h-full after:w-1 after:left-0 after:top-0 after:bg-$color-400';
 			}
 		}
 

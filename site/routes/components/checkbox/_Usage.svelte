@@ -36,7 +36,7 @@
 				<SnapSlider title="Size" options={sizes} bind:selected={selSize} />
 				<Switch label="Indeterminate" name="indeterminate" bind:checked={indeterminate} />
 				<Switch label="Disabled" name="disabled" bind:checked={disabled} />
-				<ColorSwatch selected={'var-blue'} on:change={(ev) => (rco = ev.detail)} />
+				<ColorSwatch selected={'$color-blue'} on:change={(ev) => (rco = ev.detail)} />
 			</svelte:fragment>
 		</Demo>
 	</SectionDemo>

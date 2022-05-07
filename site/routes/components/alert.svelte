@@ -14,22 +14,22 @@
 	let alertVariant = 'accent';
 
 	let alertRco = '';
-	let col = 'var-amber';
+	let col = '$color-amber';
 
 	function onTypeChange() {
 		alertRco = '';
 		switch (alertType) {
 			case 'success':
-				col = 'var-green';
+				col = '$color-green';
 				break;
 			case 'info':
-				col = 'var-blue';
+				col = '$color-blue';
 				break;
 			case 'warning':
-				col = 'var-amber';
+				col = '$color-amber';
 				break;
 			case 'error':
-				col = 'var-red';
+				col = '$color-red';
 				break;
 		}
 	}
