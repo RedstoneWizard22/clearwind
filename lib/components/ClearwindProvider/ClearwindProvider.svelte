@@ -7,7 +7,7 @@
 	const customTwMerge = extendTailwindMerge({
 		theme: {},
 		classGroups: {
-			var: [{ var: [() => true] }],
+			'tailwindcss-var': [{ $color: [() => true], $spacing: [() => true] }],
 		},
 		conflictingClassGroups: {},
 	});
