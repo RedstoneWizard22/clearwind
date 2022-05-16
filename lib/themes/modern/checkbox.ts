@@ -11,17 +11,20 @@ export const checkboxTheme: ComponentTheme<'Checkbox'> = {
 	core: (info, { size }) => {
 		let root = '$color-primary flex items-center';
 		let input =
-			'cursor-pointer appearance-none border rounded-sm transition-colors duration-150 border-gray-300 ring-$color-200 focus:outline-none focus-visible:ring focus:border-$color-500';
+			'shadow-sm appearance-none border rounded-[0.1875rem] transition-colors duration-50 border-gray-300 ring-$color-200 focus:outline-none focus-visible:ring focus:border-$color-500';
 		let icon = 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2';
 		let checkboxdiv = '';
-		let label = 'cursor-pointer leading-none';
+		let label = 'leading-none';
 
 		if (info.isDisabled) {
 			input += ' bg-gray-100 cursor-not-allowed';
 			icon += ' text-gray-300';
-			label += ' cursor-not-allowed text-gray-400';
+			root += ' cursor-not-allowed';
+			label += ' text-gray-400';
 		} else {
 			icon += ' text-white';
+			root += ' cursor-pointer';
+			input += ' cursor-pointer';
 			if (info.isIndeterminate || info.isChecked) {
 				input += ' bg-$color-500 border-$color-500';
 			} else {

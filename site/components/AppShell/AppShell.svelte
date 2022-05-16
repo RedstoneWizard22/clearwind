@@ -7,6 +7,7 @@
 	import { onMount } from 'svelte';
 	import { expoOut } from 'svelte/easing';
 	import { tweened } from 'svelte/motion';
+	import Toc from './TOC.svelte';
 
 	import Header from './Header.svelte';
 	import Navbar from './Navbar.svelte';
@@ -52,20 +53,21 @@
 </nav>
 
 <!-- body -->
-<main class="mt-14 overflow-hidden md:ml-60">
+<main class="mt-14 overflow-clip md:ml-60">
 	<!-- Page contents -->
 	<div
-		class="mx-auto max-w-screen-xl p-6 md:p-10 md:py-8 lg:p-12"
+		class="mx-auto flex max-w-screen-xl p-6 md:p-10 md:py-8 lg:p-12"
 		style={mobile ? `transform: translateX(${$navTx * 15}rem)` : ''}
 	>
-		<slot />
+		<div class="min-w-0 flex-1"><slot /></div>
+		<div class="sticky top-24 ml-16 hidden h-full w-52 md:block"><Toc /></div>
 	</div>
 	<!-- Background for the page -->
 	<div
 		class="fixed top-0 left-0 -z-10 h-full w-full bg-white md:left-60"
 		style={mobile ? `transform: translateX(${$navTx * 15}rem)` : ''}
 	>
-		<div class="h-full w-full bg-gray-50/75" />
+		<div class="h-full w-full bg-white" />
 	</div>
 	<!-- A shade that when clicked closes the navbar (only visible in mobile mode) -->
 	{#if mobile && $navTx != 0}

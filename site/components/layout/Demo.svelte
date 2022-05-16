@@ -3,7 +3,7 @@
 	import chevronHorizontal from '@iconify/icons-akar-icons/chevron-horizontal.js';
 </script>
 
-<div class="rounded-md bg-white shadow">
+<div class="rounded-md border bg-white">
 	<div class="xl:flex">
 		<!-- content -->
 		<div class="relative flex flex-grow items-center justify-center p-6 md:p-8">

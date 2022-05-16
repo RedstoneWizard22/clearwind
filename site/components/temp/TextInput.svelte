@@ -8,6 +8,8 @@
 	export let name = '';
 	/** Value of the input */
 	export let value = '';
+	/** Placeholder attribute */
+	export let placeholder = '';
 	/** Id to give the input, if none is provided a random one will be generated */
 	export let id: string = getRandomId();
 </script>
@@ -17,10 +19,11 @@
 		<p class="mb-1 font-medium">{title}</p>
 	{/if}
 	<input
-		class="w-full rounded border border-gray-300 py-2 px-3 text-sm focus:border-primary-500 focus:outline-none"
+		class="w-full rounded-md border border-gray-300 py-2 px-3 text-sm shadow-sm focus:border-primary-500 focus:outline-none"
 		type="text"
 		bind:value
 		{id}
 		{name}
+		{placeholder}
 	/>
 </div>

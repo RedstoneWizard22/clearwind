@@ -6,7 +6,7 @@
 	import playIcon from '@iconify/icons-akar-icons/play.js';
 </script>
 
-<div class="flex h-full w-full flex-col bg-gray-100 p-4 shadow-inner">
+<div class="flex h-full w-full flex-col bg-gray-100 p-4 shadow-inner md:border-r md:shadow-none">
 	<div class="flex-grow space-y-1 text-sm">
 		<button class="flex w-full items-center rounded-md p-2 px-2.5 font-medium text-gray-500">
 			<Icon icon={bookIcon} class="mr-3 text-lg" />

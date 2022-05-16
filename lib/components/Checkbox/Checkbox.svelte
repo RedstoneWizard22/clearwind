@@ -19,22 +19,22 @@
 	export let co: COProp<'Checkbox'> | undefined = undefined;
 	export let modifiers: ModifiersProp | undefined = undefined;
 
-	/** Icon to use when the checkbox is checked */
+	/** Icon to use when checked */
 	export let checkIcon: IconifyIcon = icons.check;
-	/** Icon to use when the checkbox is indeterminate checked */
-	export let intermediateIcon: IconifyIcon = icons.indeterminate;
-	/** Label for the checkbox */
+	/** Icon to use when indeterminate */
+	export let indeterminateIcon: IconifyIcon = icons.indeterminate;
+	/** Label for the checkbox, alternatively use label slot */
 	export let label = '';
-	/** Name property of the checkbox */
+	/** Name attribute */
 	export let name = '';
-	/** Value property of the checkbox */
+	/** Value attribute, also used as the value for bind:group */
 	export let value = 'on';
 	/** Id to give the checkbox, if none is provided a random one will be generated */
 	export let id: string = getRandomId();
 	/** Whether the checkbox is checked */
 	export let checked = false;
-	/** Whether the checkbox is indeterminate. This only changes the icon,
-	 * it does not modify the state of the checkbox. */
+	/** Whether the checkbox is indeterminate. This will lock checked at false,
+	 * but the on:change event will still fire. */
 	export let indeterminate = false;
 	/** Whether the checkbox is disabled */
 	export let disabled = false;
@@ -85,19 +85,20 @@
 </script>
 
 <!-- part: root -->
-<div class={classes.root}>
+<label class={classes.root} for={id}>
 	<!-- part: checkboxdiv -->
-	<div class={classes.checkboxdiv}>
+	<span class={classes.checkboxdiv}>
 		<!-- part: checkbox -->
 		<input
 			class={classes.input}
 			type="checkbox"
-			{checked}
 			bind:this={ref}
 			{id}
 			{name}
 			{value}
+			{checked}
 			{disabled}
+			{required}
 			{tabIndex}
 			on:focus
 			on:blur
@@ -108,13 +109,13 @@
 		/>
 		<!-- part: icon -->
 		{#if checked || indeterminate}
-			<div transition:fly={{ y: 5, duration: 250 }} class={classes.icon}>
-				<Icon icon={indeterminate ? intermediateIcon : checkIcon} />
+			<div transition:fly|local={{ y: 5, duration: 150 }} class={classes.icon}>
+				<Icon icon={indeterminate ? indeterminateIcon : checkIcon} />
 			</div>
 		{/if}
-	</div>
+	</span>
 	<!-- part: label -->
 	{#if label || $$slots.label}
-		<label class={classes.label} for={id}><slot name="label">{label}</slot></label>
+		<span class={classes.label} for={id}><slot name="label">{label}</slot></span>
 	{/if}
-</div>
+</label>
