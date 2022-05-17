@@ -11,6 +11,11 @@ type Info = {
 		isIndeterminate: boolean;
 		isChecked: boolean;
 	};
+	Switch: {
+		isDisabled: boolean;
+		isRequired: boolean;
+		isChecked: boolean;
+	};
 };
 
 export default Info;

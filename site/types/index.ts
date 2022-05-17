@@ -11,6 +11,7 @@ export type PropData = {
 	type: string;
 	default?: string;
 	description: string;
+  twoWay?: boolean;
 }[];
 
 export type SlotData = {
