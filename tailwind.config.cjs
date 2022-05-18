@@ -7,7 +7,19 @@ const config = {
 	theme: {
 		extend: {
 			colors: {
-				primary: colors.blue,
+				primary: {
+					DEFAULT: '#378EFB',
+					50: '#EBF4FF',
+					100: '#D7E8FE',
+					200: '#AFD2FD',
+					300: '#87BBFD',
+					400: '#5FA5FC',
+					500: '#378EFB',
+					600: '#056FF5',
+					700: '#0456BE',
+					800: '#033D87',
+					900: '#022450',
+				},
 				$color: {
 					50: 'var(--tw-var-color-50)',
 					100: 'var(--tw-var-color-100)',

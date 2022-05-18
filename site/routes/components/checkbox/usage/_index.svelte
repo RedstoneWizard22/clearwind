@@ -14,7 +14,7 @@
 	import events from './events';
 </script>
 
-<Heading title="Overview" />
+<Heading compact title="Overview" />
 <Usage />
 <Reactivity />
 <Group />

@@ -4,9 +4,9 @@
 	import Demo from '$site/components/layout/Demo.svelte';
 	import TextInput from '$site/components/temp/TextInput.svelte';
 	import SnapSlider from '$site/components/temp/SnapSlider.svelte';
-	import Heading from '$site/components/layout/Heading.svelte';
 	import Description from '$site/components/layout/Description.svelte';
 	import Link from '$site/components/temp/Link.svelte';
+	import Heading from '$site/components/layout/Heading.svelte';
 
 	let disabled = false;
 	let checked = true;
@@ -18,7 +18,7 @@
 	let rco = '';
 </script>
 
-<Heading sub title="Usage" />
+<Heading sub compact title="Usage" />
 <Description
 	>The switch is an alternative to the <Link href="/components/checkbox" target="_self"
 		>Checkbox</Link

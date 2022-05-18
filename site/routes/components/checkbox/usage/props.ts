@@ -42,6 +42,7 @@ const props: PropData = [
 		type: 'boolean',
 		default: 'false',
 		description: 'Whether the checkbox is checked',
+		twoWay: true,
 	},
 	{
 		name: 'indeterminate',
@@ -73,12 +74,14 @@ const props: PropData = [
 		type: 'HTMLInputElement | null',
 		default: 'null',
 		description: 'Get a reference to the input element',
+		twoWay: true,
 	},
 	{
 		name: 'group',
 		type: 'string[] | undefined',
 		default: 'undefined',
 		description: 'The bound group',
+		twoWay: true,
 	},
 ];
 

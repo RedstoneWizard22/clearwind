@@ -27,7 +27,6 @@
 </Description>
 <Demo>
 	<div class="space-y-3">
-		<Switch label="No icons" {modifiers} {disabled} />
 		<Switch checkIcon={moonFill} uncheckIcon={sunFill} label="Thumb icons" {modifiers} {disabled} />
 		<Switch
 			iconPlacement="track"

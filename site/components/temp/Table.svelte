@@ -13,7 +13,7 @@
 	export let lastHeadingRight = false;
 </script>
 
-<div class="relative overflow-x-auto border-gray-200 bg-white">
+<div class="relative mt-5 overflow-x-auto rounded-sm border-gray-200 bg-white">
 	<table class="w-full table-auto text-left text-sm">
 		<thead class="">
 			<tr class="border-b border-gray-300 bg-gray-50">

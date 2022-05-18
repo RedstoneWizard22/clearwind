@@ -6,6 +6,7 @@
 	import Button from '$site/components/temp/Button.svelte';
 	import Code from '$site/components/temp/Code.svelte';
 	import Link from '$site/components/temp/Link.svelte';
+	import Var from '$site/components/Var.svelte';
 
 	const options = ['Vanilla', 'Banana', 'Chocolate'];
 	let group = options.slice(0, 1);
@@ -23,7 +24,8 @@
 		{#each options as option}
 			<Checkbox label={option} value={option} bind:group />
 		{/each}
-		<p class="pt-0.5">Selected: {group.join(', ')}</p>
+
+		<Var name="selected" value={group} rco="pt-2" />
 
 		<Button
 			on:click={() => {

@@ -17,4 +17,4 @@
 <Description>
 	You can get input ref by binding to the <Code>ref</Code> prop.
 </Description>
-<Prism source={code} language="svelte" rco="p-4 bg-white border rounded-lg" />
+<Prism source={code} language="svelte" rco="" />

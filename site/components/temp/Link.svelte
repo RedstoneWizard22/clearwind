@@ -3,6 +3,6 @@
 	export let target = '_blank';
 </script>
 
-<a {href} {target} class="text-blue-600 hover:underline">
+<a {href} {target} class="relative font-medium text-slate-800 hover:text-blue-500">
 	<slot />
 </a>

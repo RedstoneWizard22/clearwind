@@ -5,7 +5,7 @@
 	import Theming from './theming/_index.svelte';
 </script>
 
-<ComponentPage name="Switch" description="Get boolean input from a user">
+<ComponentPage name="Switch" description="An alternative to the checkbox">
 	<Usage slot="usage" />
 	<Theming slot="theming" />
 </ComponentPage>

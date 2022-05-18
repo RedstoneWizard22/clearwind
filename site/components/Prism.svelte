@@ -8,7 +8,7 @@
 	/// Props
 	export let source: string;
 	export let language: string;
-	export let noBackground: boolean = true;
+	export let noBackground: boolean = false;
 	export let rco: string = '';
 
 	/// Logic
@@ -46,7 +46,7 @@
 	}
 </script>
 
-<div class={rco + ' relative'}>
+<div class={rco + ' mt-5 relative'}>
 	<pre class="overflow-x-auto text-sm">
     <code class={`language-${language}`} bind:this={ref}>
       {source}

@@ -17,7 +17,7 @@
 	let rco = '';
 </script>
 
-<Heading sub title="Usage" />
+<Heading sub compact title="Usage" />
 <Demo>
 	<Checkbox
 		modifiers={{ size: sizes[selSize] }}

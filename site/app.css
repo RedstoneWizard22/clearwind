@@ -9,8 +9,7 @@
 	}
 
 	body {
-		font-family: Segoe UI, ui-sans-serif, system-ui, -apple-system, Roboto, Helvetica Neue, Arial,
-			Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+		@apply font-sans;
 	}
 
 	h1 {
@@ -27,5 +26,12 @@
 
 	h4 {
 		@apply text-xl font-semibold text-gray-900;
+	}
+
+	/* Prism.js styles */
+	/* Code blocks */
+	pre[class*='language-'] {
+		@apply rounded-lg p-4;
+		background-color: #19212d;
 	}
 }

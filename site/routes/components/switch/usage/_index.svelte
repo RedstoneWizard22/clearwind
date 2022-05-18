@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Heading from '$site/components/layout/Heading.svelte';
 	import Group from './_Group.svelte';
 	import Icons from './_Icons.svelte';
 	import Ref from './_Ref.svelte';
@@ -11,9 +10,10 @@
 	import slots from './slots';
 	import Events from '$site/components/layout/Events.svelte';
 	import events from './events';
+	import Heading from '$site/components/layout/Heading.svelte';
 </script>
 
-<Heading title="Overview" />
+<Heading compact title="Overview" />
 <Usage />
 <Icons />
 <Group />

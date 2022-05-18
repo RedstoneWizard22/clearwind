@@ -15,7 +15,7 @@
 </script>
 
 <div
-	class="flex h-full w-full items-center justify-between bg-gradient-to-br from-blue-500 to-sky-500 px-5 shadow md:px-6 "
+	class="flex h-full w-full items-center justify-between bg-gradient-to-br from-primary-500 to-sky-500 px-5 shadow sm:px-6 "
 >
 	<div class="mr-auto flex items-center text-white">
 		<button class="mr-4 text-xl md:hidden" on:click={() => dispatch('navtoggle')}>
@@ -26,7 +26,7 @@
 	</div>
 
 	<button
-		class="mx-8 hidden h-8 max-w-sm flex-grow rounded-md bg-primary-400 bg-opacity-50 px-3 text-sm leading-8 text-white hover:bg-opacity-80 md:block lg:max-w-md xl:max-w-lg 2xl:max-w-xl"
+		class="mx-8 hidden h-8 max-w-sm flex-grow rounded-md bg-primary-400 bg-opacity-60 px-3 text-sm leading-8 text-white hover:bg-opacity-80 md:block lg:max-w-md xl:max-w-lg 2xl:max-w-xl"
 	>
 		<div class="relative flex h-full items-center">
 			<Icon inline class="mr-1.5 inline" icon={searchIcon} />
