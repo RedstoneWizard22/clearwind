@@ -1,17 +1,11 @@
-export type Categories = 'Input' | 'Overlay';
-
-export type ComponentData = {
-	name: string;
-	description: string;
-	category: Categories;
-}[];
+import type { IconifyIcon } from '@iconify/svelte';
 
 export type PropData = {
 	name: string;
 	type: string;
 	default?: string;
 	description: string;
-  twoWay?: boolean;
+	twoWay?: boolean;
 }[];
 
 export type SlotData = {
@@ -29,4 +23,18 @@ export type EventData = {
 export type InfoData = {
 	name: string;
 	type: string;
+}[];
+
+export type DocPages = {
+	name: string;
+	path: string;
+	icon: IconifyIcon;
+	categories: {
+		name: string;
+		pages: {
+			name: string;
+			path: string;
+			description: string;
+		}[];
+	}[];
 }[];

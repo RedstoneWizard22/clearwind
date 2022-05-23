@@ -47,14 +47,17 @@
 </div>
 
 <!-- navbar -->
-<nav class="fixed top-0 left-0 -z-20 h-full w-60 pt-14">
+<nav class="fixed top-0 left-0 h-full w-60 pt-14">
 	<Navbar />
 </nav>
 
 <!-- body -->
 <main class="mt-14 overflow-clip md:ml-60">
 	<!-- Page contents -->
-	<div class="bg-white" style={mobile ? `transform: translateX(${$navTx * 15}rem)` : ''}>
+	<div
+		class="relative z-[1] min-h-screen bg-white"
+		style={mobile ? `transform: translateX(${$navTx * 15}rem)` : ''}
+	>
 		<slot />
 	</div>
 	<!-- A shade that when clicked closes the navbar (for mobile mode) -->

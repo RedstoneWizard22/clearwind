@@ -4,5 +4,5 @@
 	import info from './info';
 </script>
 
-<Heading title="Info" />
+<Heading compact title="Info" />
 <Info data={info} />

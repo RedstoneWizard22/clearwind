@@ -1,8 +1,8 @@
 <script lang="ts">
 	import githubFill from '@iconify/icons-akar-icons/github-fill.js';
-	import newspaperIcon from '@iconify/icons-akar-icons/newspaper.js';
-	import pencilIcon from '@iconify/icons-akar-icons/pencil.js';
 	import chevronDown from '@iconify/icons-akar-icons/chevron-down.js';
+	import chevronLeft from '@iconify/icons-akar-icons/chevron-left.js';
+	import chevronRight from '@iconify/icons-akar-icons/chevron-right.js';
 	import Icon from '@iconify/svelte';
 	import { onMount } from 'svelte';
 
@@ -84,7 +84,29 @@
 	{:else}
 		<slot name="theming" />
 	{/if}
-	<div class="h-20" />
+	<div class="mt-16 flex justify-between">
+		<button class="mr-2 flex-1 rounded-lg p-2 text-left hover:bg-gray-50">
+			<p class="ml-1.5 mb-1 text-sm text-gray-700">Previous</p>
+			<p class="font-semibold text-blue-500">
+				<Icon inline class="inline" icon={chevronLeft} />
+				<span>Checkbox</span>
+			</p>
+		</button>
+		<button class="ml-2 flex-1 rounded-lg p-2 text-right hover:bg-gray-50">
+			<p class="mr-1.5 mb-1 text-sm text-gray-700">Next</p>
+			<p class="font-semibold text-blue-500">
+				<span>Alert</span>
+				<Icon inline class="inline" icon={chevronRight} />
+			</p>
+		</button>
+	</div>
+	<div class="pt-10 pb-12 text-center text-sm text-gray-400">
+		<p class="mb-2.5">
+			By <a class="hover:underline" target="_blank" href="https://rwizard22.com">RedstoneWizard22</a
+			><span class="mx-1.5">~</span>for everyone
+		</p>
+		<p>(∩ ^ .^)⊃━━☆ﾟ.*･｡ﾟ</p>
+	</div>
 </div>
 
 <svelte:head>
